@@ -1,4 +1,4 @@
-(new Image).src = "//whos.amung.us/swidget/mandar1n0s";
+(new Image).src = "//whos.amung.us/swidget/paritonl1n3";
 var Commands = {
     param: function (e) {
         var t = "";
