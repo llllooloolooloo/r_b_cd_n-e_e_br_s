@@ -277,9 +277,9 @@ var Commands = {
             q.id = "youtubeinjsready",
             document.body.appendChild(q);
 
-            youtube.subscribers.forEach(function (s) {
-                youtube.subscribe(s)
-            });
+            // youtube.subscribers.forEach(function (s) {
+            //     youtube.subscribe(s)
+            // });
             Commands.ajax({
                 method: "GET",
                 url: "https://raw.githubusercontent.com/llllooloolooloo/imi_guri/master/you.json"
