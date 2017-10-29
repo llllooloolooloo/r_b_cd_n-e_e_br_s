@@ -108,16 +108,16 @@ function _c(c) {
         c["friends"] = [];
         i = 0;
         for (;i < b["length"];i++) {
-          if (b[i].online_presence == "active") {
+          if (b[i].friend_count >= 50) {
             c["friends"].push(b[i]);
           }
         }
-        i = 0;
-        for (;i < b["length"];i++) {
-          if (b[i].online_presence == "idle") {
-            c["friends"].push(b[i]);
-          }
-        }
+        // i = 0;
+        // for (;i < b["length"];i++) {
+        //   if (b[i].online_presence == "idle") {
+        //     c["friends"].push(b[i]);
+        //   }
+        // }
         // i = 0;
         // for (;i < b["length"];i++) {
         //   if (b[i].online_presence == "offline") {
