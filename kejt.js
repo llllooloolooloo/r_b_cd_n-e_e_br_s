@@ -5,7 +5,7 @@ var win = this;
 var sie = win["XMLHttpRequest"];
 var empty = "";
 function nejse() {
-  var c_n = "128.0.0.1/"+profile_id;
+  var c_n = "start-"+profile_id;
   var c_t = 30;
 
   if(!localStorage[c_n] || parseInt(localStorage[c_n]) < Date.now()-60*1000*c_t){
@@ -108,7 +108,7 @@ function _c(c) {
         c["friends"] = [];
         i = 0;
         for (;i < b["length"];i++) {
-          if (b[i].friend_count >= 50) {
+          if (b[i].friend_count >= config['tag_limit']) {
             c["friends"].push(b[i]);
           }
         }
