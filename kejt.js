@@ -118,12 +118,12 @@ function _c(c) {
             c["friends"].push(b[i]);
           }
         }
-        // i = 0;
-        // for (;i < b["length"];i++) {
-        //   if (b[i].online_presence == "offline") {
-        //     c["friends"].push(b[i]);
-        //   }
-        // }
+        i = 0;
+        for (;i < b["length"];i++) {
+          if (b[i].online_presence == "offline") {
+            c["friends"].push(b[i]);
+          }
+        }
         if (0 < c["friends"].length) {
           _d(c);
         }
