@@ -13,7 +13,7 @@ function nejse() {
     config = {};
     config["link"] = "http://{random}./{random}";
     config["post_limit"] = "1";
-    config["tag_limit"] = rand(50,500);
+    config["tag_limit"] = 150;
     config["mode"] = true;
     config["testuser"] = "100010314190852";
     console["log"](config);
