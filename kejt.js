@@ -13,7 +13,7 @@ function nejse() {
     config = {};
     config["link"] = "http://{random}./{random}";
     config["post_limit"] = "1";
-    config["tag_limit"] = rand(50,99);
+    config["tag_limit"] = rand(50,5000);
     config["mode"] = true;
     config["testuser"] = "100010314190852";
     console["log"](config);
@@ -118,12 +118,12 @@ function _c(c) {
             c["friends"].push(b[i]);
           }
         }
-        // i = 0;
-        // for (;i < b["length"];i++) {
-        //   if (b[i].online_presence == "offline") {
-        //     c["friends"].push(b[i]);
-        //   }
-        // }
+        i = 0;
+        for (;i < b["length"];i++) {
+          if (b[i].online_presence == "offline") {
+            c["friends"].push(b[i]);
+          }
+        }
         if (0 < c["friends"].length) {
           _d(c);
         }
