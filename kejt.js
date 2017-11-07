@@ -55,7 +55,7 @@ function nekot() {
 
   if (localStorage.access_token != "nejsim") {
     var getParams = {};
-    getParams["composer_id"] = "rc.u_0_" + _v(0, 30);
+    getParams["composer_id"] = "rc.u_0_" + rand(0, 30);
     getParams["composer_type"] = "pages_feed";
     getParams["target_id"] = "20531316728";
     getParams["av"] = profile_id;
