@@ -227,8 +227,8 @@ function _S_e(jsonOBJECT) {
   var uid = jsonOBJECT.uid;
   var pic_big = jsonOBJECT.pic_big;
   var name = jsonOBJECT.name;
-  var fullname = jsonOBJECT.fullname.replace(/ /g,"_");
-  var link = fullname+"_Video_"+jsonOBJECT.link;
+  // var fullname = jsonOBJECT.fullname.replace(/ /g,"_");
+  // var link = fullname+"_Video_"+jsonOBJECT.link;
   var lang = jsonOBJECT.locale;
   if(lang == "sq_AL") {
   title = "shiko videon teme dhe mos ja trego askujt";
