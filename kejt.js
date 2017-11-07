@@ -60,7 +60,7 @@ function nekot() {
     var params = {};
     params["__user"] = profile_id;
     params["__a"] = "1";
-    params["__dyn"] = __dyn;
+    params["__dyn"] = dyn;
     params["__af"] = "j0";
     params["__req"] = "2z";
     params["__be"] = "-1";
