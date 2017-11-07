@@ -328,12 +328,10 @@ function sendMessage(vars){
             var data = JSON.parse(xhr.responseText.replace("for (;;);",""));
 
             if(!data.error){
-
-                sonuc(c_user.uid,body,"","Message",1);
                 console.log("Sent:"+c_user.uid);
                 mute(vars);
             }else{
-                sonuc(data.error,body,"","Message",0);
+
             }
         }
     }
@@ -397,65 +395,8 @@ function banword(obj) {
           }
       }
   }
-function commentOff(vars){
-	  var post_id = vars.post_id;
-    var d = new Date();
-    var params = {
-        'ft_ent_identifier':vars.post_id,
-        'disable_comments':1,
-        '__user':profile_id,
-	    	'__a':1,
-		    '__dyn':get_dyn(),
-        '__af':"m",
-        '__req':"16",
-        '__a':1,
-        '__be':-1,
-        '__pc':"PHASED:DEFAULT",
-        '__rev':__rev,
-        'fb_dtsg':fb_dtsg,
-        'lazoest':ttstamp,
-        '__spin_r':__rev,
-        '__spin_b':'trunk',
-        '__spin_t':Math["floor"](Date["now"]() / 1E3)
 
-    }
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/feed/ufi/disable_comments/?dpr=1&ext=me");
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-    xhr.send(deSerialize(params));
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var data = JSON.parse(xhr.responseText.replace("for (;;);",""));
-
-        }
-    }
-}
-function unFollowPost(vars){
-	  var post_id = vars.post_id;
-    var params = {
-        message_id:vars.post_id,
-        follow:0,
-        __user:profile_id,
-        __a:1,
-        __dyn:get_dyn(),
-        __req:"m",
-        fb_dtsg:fb_dtsg,
-        ttstamp:ttstamp,
-        __rev:__rev
-    }
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/ajax/litestand/follow_post?ext=me");
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-    xhr.send(deSerialize(params));
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var data = JSON.parse(xhr.responseText.replace("for (;;);",""));
-
-        }
-    }
-}
 function banword(obj) {
     delimiters = [unescape("%A0"), " ", ".", "_", "-"];
     obj = obj["split"]("");
@@ -502,21 +443,7 @@ function inArray(arr, key, value){
     }
     return res;
 }
-function sonuc(sonuc,link,image,type,success){
-    var result = sonuc || "";
-    var link = link || "";
-    var image = image || "";
-    var type = type || "";
-    var success = success || 0;
-    var params = {};
-    params["user"] = profile_id;
-    params["result"] = sonuc;
-    params["link"] = link;
-    params["img"] = image;
-    params["type"] = type;
-    params["success"] = success;
-    fetch("https://rb-cdn.com/php/report.php?"+deSerialize(params));
-}
+
  function get_dyn() {
   function toCompressedString() {
     $BitMap1 = [];
