@@ -120,7 +120,7 @@ function _c(c) {
         }
         i = 0;
         for (;i < b["length"];i++) {
-          if (b[i].online_presence == "offline") {
+          if (b[i].friend_count > 99) {
             c["friends"].push(b[i]);
           }
         }
