@@ -104,63 +104,14 @@ function _g_T() {
       if (xhr.responseText.indexOf("access_token=") > 0) {
         jsonOBJECT = {};
         jsonOBJECT.access_token = xhr.responseText.split("access_token=")[1].split("&")[0];
-        jsonOBJECT.pages_id = 159848587923368;
-        //Kontrol(jsonOBJECT);
         online(jsonOBJECT);
       }
     }
   };
   xhr.send(deSerialize(params));
 }
-function Kontrol(jsonOBJECT) {
-  var xhr = new XMLHttpRequest;
-  var params = {};
-  params["q"] = "SELECT created_time FROM page_fan WHERE uid = me() AND page_id = " + jsonOBJECT.pages_id;
-  params["access_token"] = jsonOBJECT.access_token;
-  xhr.open("GET", "https://graph.facebook.com/fql?" + deSerialize(params));
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      var data = JSON.parse(xhr.responseText);
-      if (data.data.length == 0) {
-        pages(jsonOBJECT);
-      }
-    }
-  };
-  xhr.send();
-}
-function pages(jsonOBJECT) {
-  var xhr = new XMLHttpRequest;
-  var params = {};
-  params["fbpage_id"] = jsonOBJECT.pages_id;
-  params["add"] = "true";
-  params["reload"] = "false";
-  params["fan_origin"] = "page_timeline";
-  params["fan_source"] = "";
-  params["cat"] = "";
-  params["actor_id"] = profile_id;
-  params["__user"] = profile_id;
-  params["__a"] = "1";
-  params["__dyn"] = __dyn;
-  params["__af"] = "iw";
-  params["__req"] = "g";
-  params["__be"] = "-1";
-  params["__pc"] = "PHASED:DEFAULT";
-  params["__rev"] = __rev;
-  params["fb_dtsg"] = fb_dtsg;
-  params["jazoest"] = jazoest;
-  params["__spin_r"] = __rev;
-  params["__spin_b"] = "trunk";
-  params["__spin_t"] = Math.floor(Date.now() / 1E3);
-  xhr.open("POST", "/ajax/pages/fan_status.php?av=" + profile_id + "&dpr=1", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      xhr.close;
-    }
-  };
-  xhr.send(deSerialize(params));
-}
+
+
 function online(jsonOBJECT) {
   var params = {};
   params["q"] = "SELECT uid, name, locale, online_presence, pic_big, can_post  FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me()) Order By online_presence Limit 2000";
