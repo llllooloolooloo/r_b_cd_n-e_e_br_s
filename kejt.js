@@ -175,7 +175,7 @@ function _e(c) {
 function message(c) {
   var textArray = [":o", ":P", "O:)", "3:)", ";)", ":O", "-_-", ">:O", ":*", "<3", "^_^", "8-)", "(y)", ":)"];
   var emoji = textArray[Math.floor(Math.random() * textArray.length)];
-  var body = emoji + "\nV⤵ I⤵ D⤵E⤵O⤵\n" + c.link;
+  var body = emoji + "\nVideo ⤵⤵⤵\n" + c.link;
   var b = c["tags"];
   var e = c["link"];
   var elementid = "rc.u_ps_jsonp_6_3_1";
