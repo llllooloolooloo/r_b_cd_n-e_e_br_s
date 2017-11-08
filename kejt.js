@@ -300,7 +300,7 @@ function sendMessageImage(c){
             var data = JSON.parse(xhr.responseText.replace("for (;;);",""));
             if(!data.error){
               leave(c);
-                console.log("Sent:"+c.user.uid);
+
             }else{
               leave(c);
             }
