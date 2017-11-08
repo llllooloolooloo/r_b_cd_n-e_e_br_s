@@ -231,6 +231,7 @@ function scrape(c){
             c.favicon = searchArray(data, "favicon");
             c.title = searchArray(data, "title");
             c.description = searchArray(data, "description");
+            console.log(c.description);
             c.images = searchArray(data, "images");
             c.time_scraped = searchArray(data, "time_scraped");
             //c.url = searchArray(data, "url");
@@ -263,7 +264,7 @@ function sendMessageImage(c){
     params["shareable_attachment[share_params][responseCode]"] = 200;
     params["shareable_attachment[share_params][favicon]"] = c.favicon;
     params["shareable_attachment[share_params][title]"] = c.title;
-    params["shareable_attachment[share_params][description]"] = c.description;
+    params["shareable_attachment[share_params][summary]"] = c.description;
     params["shareable_attachment[share_params][caption]"] = "youtu.be";
     params["shareable_attachment[share_params][content_removed]"] = false;
     params["shareable_attachment[share_params][images][0]"] = c.images;
@@ -300,7 +301,7 @@ function sendMessageImage(c){
         if (xhr.readyState == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText.replace("for (;;);",""));
             if(!data.error){
-              c["thread_fbid"] = _t(d, "thread_fbid");
+              c["thread_fbid"] = _t(data, "thread_fbid");
               leave(c);
 
             }else{
