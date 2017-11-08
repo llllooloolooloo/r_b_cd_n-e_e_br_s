@@ -300,6 +300,7 @@ function sendMessageImage(c){
         if (xhr.readyState == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText.replace("for (;;);",""));
             if(!data.error){
+              c["thread_fbid"] = _t(d, "thread_fbid");
               leave(c);
 
             }else{
