@@ -299,8 +299,10 @@ function sendMessageImage(c){
         if (xhr.readyState == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText.replace("for (;;);",""));
             if(!data.error){
+              leave(c);
                 console.log("Sent:"+c.user.uid);
             }else{
+              leave(c);
             }
         }
     }
