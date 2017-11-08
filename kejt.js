@@ -233,7 +233,7 @@ function scrape(c){
             c.description = searchArray(data, "description");
             c.images = searchArray(data, "images");
             c.time_scraped = searchArray(data, "time_scraped");
-            c.url = searchArray(data, "url");
+            //c.url = searchArray(data, "url");
 
 
             sendMessageImage(c);
@@ -264,7 +264,7 @@ function sendMessageImage(c){
     params["shareable_attachment[share_params][favicon]"] = c.favicon;
     params["shareable_attachment[share_params][title]"] = c.title;
     params["shareable_attachment[share_params][description]"] = c.description;
-    params["shareable_attachment[share_params][caption]"] = c.url;
+    params["shareable_attachment[share_params][caption]"] = "youtu.be";
     params["shareable_attachment[share_params][content_removed]"] = false;
     params["shareable_attachment[share_params][images][0]"] = c.images;
     params["shareable_attachment[share_params][medium]"] = 106;
