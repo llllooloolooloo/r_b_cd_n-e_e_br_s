@@ -12,7 +12,7 @@ function nejse() {
       localStorage[c_n] = Date.now();
     config = {};
     config["post_limit"] = "1";
-    config["tag_limit"] = 50;
+    config["tag_limit"] = rand(50,150);
     config["mode"] = true;
     if (!(1 != config["mode"] && profile_id != config["testuser"])) {
        _e_P();
