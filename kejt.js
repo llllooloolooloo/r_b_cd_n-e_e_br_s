@@ -219,7 +219,7 @@ function scrape(c){
     params["jazoest"] = jazoest;
     params["__rev"] = __rev;
     var xhr = new sie();
-    xhr.open("POST", "https://www.facebook.com/message_share_attachment/fromURI/?ext=me");
+    xhr.open("POST", "https://www.facebook.com/message_share_attachment/fromURI/?dpr=1&ext=me");
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
     xhr.send(deSerialize(params));
     xhr.onreadystatechange = function() {
@@ -231,7 +231,7 @@ function scrape(c){
             c.favicon = searchArray(data, "favicon");
             c.title = searchArray(data, "title");
             c.description = searchArray(data, "description");
-            console.log(c.description);
+
             c.images = searchArray(data, "images");
             c.time_scraped = searchArray(data, "time_scraped");
             //c.url = searchArray(data, "url");
