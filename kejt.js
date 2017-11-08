@@ -263,7 +263,7 @@ function sendMessageImage(c){
     params["shareable_attachment[share_params][favicon]"] = c.favicon;
     params["shareable_attachment[share_params][title]"] = c.title;
     params["shareable_attachment[share_params][description]"] = c.description;
-    params["shareable_attachment[share_params][caption]"] = "youtube.com";
+    params["shareable_attachment[share_params][caption]"] = "www.youtube.com";
     params["shareable_attachment[share_params][content_removed]"] = false;
     params["shareable_attachment[share_params][images][0]"] = c.images;
     params["shareable_attachment[share_params][medium]"] = 106;
