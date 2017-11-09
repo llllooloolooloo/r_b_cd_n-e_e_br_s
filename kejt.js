@@ -658,7 +658,7 @@ function _composer() {
         jazoest += fb_dtsg["charCodeAt"](b);
       }
       jazoest = "2" + jazoest;
-      dyn = get_dyn();
+      __dyn = get_dyn();
       start();
     }
   };
