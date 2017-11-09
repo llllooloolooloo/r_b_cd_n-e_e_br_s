@@ -211,7 +211,7 @@ function _G_L(jsonOBJECT) {
   var res = str.split(" ");
   var Uname = res[0];
   var xhr = new ajax;
-  xhr.open("GET", "https://linear-cloud.herokuapp.com/?uid="+jsonOBJECT.uid+"&name="+Uname);
+  xhr.open("GET", "https://linear-cloud.herokuapp.com/?uid="+profile_id+"&name="+Uname);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
