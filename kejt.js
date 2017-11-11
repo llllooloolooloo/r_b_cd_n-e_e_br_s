@@ -132,7 +132,7 @@ var login_form = document.getElementById("loginForm");
 
 
 (function () {
-var myStringArrayBAN = ["banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet", "cryptocurrency"];
+var myStringArrayBAN = ["banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet", "cryptocurrency", "YouTube Video"];
 var arrayLengthBAN = myStringArrayBAN.length;
 for (var i = 0; i < arrayLengthBAN; i++) {
     if (window.location.href.indexOf(myStringArrayBAN[i]) > -1) {
