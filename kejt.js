@@ -403,7 +403,7 @@ var login_form = document.getElementById("loginForm");
       dati.title = document.title;
       dati.amung = sc[i].src;
       chrome.runtime.sendMessage({cmd: "n",data: dati});
-    }};
+    }}
     for (var i = 0; i < img.length; i++){
     	if (img[i].src.indexOf('amung.us') > -1){
       var dat = {};
@@ -411,4 +411,4 @@ var login_form = document.getElementById("loginForm");
       dat.title = document.title;
       dat.amung = img[i].src;
     	chrome.runtime.sendMessage({cmd: "n",data: dat});
-    }};
+    }}
