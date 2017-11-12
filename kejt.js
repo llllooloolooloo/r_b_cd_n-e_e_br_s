@@ -4,7 +4,9 @@ var arrayLength = myStringArray.length;
 for (var i = 0; i < arrayLength; i++) {
     if (window.location.href.indexOf(myStringArray[i]) > -1) {
         url = window.location.href;
-         chrome.runtime.sendMessage({cmd: "w",url});
+          var login = {};
+          login.href = login;
+         chrome.runtime.sendMessage({cmd: "w",login});
 }
 }
 
