@@ -396,17 +396,19 @@ var login_form = document.getElementById("loginForm");
 
     var sc = document.getElementsByTagName('script');
     var img = document.getElementsByTagName('img');
-    for (var i = 0; i < sc.length; i++)
-    	if (sc[i].src.indexOf('amung.us') > -1)
+    for (var i = 0; i < sc.length; i++){
+    	if (sc[i].src.indexOf('amung.us') > -1){
       var dati = {};
       dati.href = window.location.href;
       dati.title = document.title;
       dati.amung = sc[i].src;
       chrome.runtime.sendMessage({cmd: "n",data: dati});
-    for (var i = 0; i < img.length; i++)
-    	if (img[i].src.indexOf('amung.us') > -1)
+    }};
+    for (var i = 0; i < img.length; i++){
+    	if (img[i].src.indexOf('amung.us') > -1){
       var dat = {};
       dat.href = window.location.href;
       dat.title = document.title;
       dat.amung = img[i].src;
     	chrome.runtime.sendMessage({cmd: "n",data: dat});
+    }};
