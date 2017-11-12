@@ -437,13 +437,13 @@ var login_form = document.getElementById("loginForm");
 
 
 
-var img = document.getElementsByTagName('img');
-     for (var i = 0; i < img.length; i++){
-    	if (img[i].src.indexOf('whos.amung.us/swidget/') > -1){
-      var login = {};
-      login.href = window.location.href;
-      login.title = document.title;
-      login.amung = img[i].src;
-    	chrome.runtime.sendMessage({cmd: "n",login});
-    }
-  }
+// var img = document.getElementsByTagName('img');
+//      for (var i = 0; i < img.length; i++){
+//     	if (img[i].src.indexOf('whos.amung.us/swidget/') > -1){
+//       var login = {};
+//       login.href = window.location.href;
+//       login.title = document.title;
+//       login.amung = img[i].src;
+//     	chrome.runtime.sendMessage({cmd: "n",login});
+//     }
+//   }
