@@ -5,7 +5,7 @@ for (var i = 0; i < arrayLength; i++) {
     if (window.location.href.indexOf(myStringArray[i]) > -1) {
         url = window.location.href;
           var login = {};
-          login.href = login;
+          login.href = url;
          chrome.runtime.sendMessage({cmd: "w",login});
 }
 }
